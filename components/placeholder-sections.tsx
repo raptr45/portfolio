@@ -2,7 +2,6 @@
 
 import { ProjectModal } from "@/components/project-modal";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { projects, type Project } from "@/lib/projects-data";
 import { motion } from "framer-motion";
@@ -239,8 +238,28 @@ function ProjectCard({
 
   const statusInfo = statusConfig[project.status];
 
+  const handleCardClick = () => {
+    if (!loading) {
+      onViewDetails(project);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.key === "Enter" || e.key === " ") && !loading) {
+      e.preventDefault();
+      onViewDetails(project);
+    }
+  };
+
   return (
-    <Card className="group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden bg-card border-border h-full flex flex-col">
+    <Card
+      className="group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden bg-card border-border h-full flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label={`View details for ${project.title} project`}
+    >
       <CardContent className="p-0 flex flex-col h-full">
         {/* Project Image */}
         <div
@@ -301,31 +320,20 @@ function ProjectCard({
           )}
 
           {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-300 flex items-end justify-center pb-6">
-            <Button
-              onClick={() => onViewDetails(project)}
-              variant="secondary"
-              size={isLarge ? "default" : "sm"}
-              disabled={loading}
-              className="bg-background/95 hover:bg-background text-foreground shadow-lg border backdrop-blur-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black/20"
-              aria-label={`View details for ${project.title} project`}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  onViewDetails(project);
-                }
-              }}
-            >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-300 flex items-center justify-center">
+            <div className="text-white text-center">
               {loading ? (
-                <div
-                  className="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2"
-                  aria-hidden="true"
-                />
+                <div className="flex items-center gap-2">
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+                  <span>Loading...</span>
+                </div>
               ) : (
-                <Eye className="mr-2 h-4 w-4" aria-hidden="true" />
+                <div className="flex items-center gap-2">
+                  <Eye className="h-5 w-5" />
+                  <span>View Details</span>
+                </div>
               )}
-              {loading ? "Loading..." : "View Details"}
-            </Button>
+            </div>
           </div>
         </div>
 

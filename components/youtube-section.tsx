@@ -49,7 +49,13 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
       : data.playlists?.find((playlist) => playlist.id === filter)?.videos ||
         [];
 
-  const copyToClipboard = async (videoUrl: string, videoId: string) => {
+  const copyToClipboard = async (
+    e: React.MouseEvent,
+    videoUrl: string,
+    videoId: string
+  ) => {
+    e.preventDefault(); // Prevent opening the video
+    e.stopPropagation(); // Stop event bubbling
     try {
       await navigator.clipboard.writeText(videoUrl);
       setCopiedId(videoId);
@@ -62,6 +68,10 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
         description: "Could not copy the video link.",
       });
     }
+  };
+
+  const openVideo = (videoUrl: string) => {
+    window.open(videoUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -117,7 +127,19 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300">
+                  <Card
+                    className="group overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    onClick={() => openVideo(videoUrl)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        openVideo(videoUrl);
+                      }
+                    }}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`Watch ${title} on YouTube`}
+                  >
                     <div className="relative aspect-video overflow-hidden">
                       <Image
                         src={thumbnails.high.url || "/placeholder.svg"}
@@ -129,28 +151,18 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
 
                       {/* Overlay */}
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                        <Button
-                          size="icon"
-                          className="bg-red-600 hover:bg-red-700 text-white"
-                          asChild
-                        >
-                          <a
-                            href={videoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Watch video on YouTube"
-                          >
-                            <Play className="h-4 w-4" />
-                          </a>
-                        </Button>
+                        <div className="bg-red-600 hover:bg-red-700 text-white rounded-full p-3">
+                          <Play className="h-6 w-6" />
+                        </div>
 
                         <Button
                           size="icon"
                           variant="secondary"
-                          onClick={() =>
-                            copyToClipboard(videoUrl, resourceId.videoId)
+                          onClick={(e) =>
+                            copyToClipboard(e, videoUrl, resourceId.videoId)
                           }
                           aria-label="Copy video link"
+                          className="rounded-full"
                         >
                           {copiedId === resourceId.videoId ? (
                             <Check className="h-4 w-4" />

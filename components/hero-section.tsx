@@ -63,7 +63,7 @@ export function HeroSection() {
           >
             <Badge
               variant="secondary"
-              className="px-6 py-3 text-lg tracking-widest shadow-lg bg-white/80 text-primary border-2 border-primary"
+              className="px-6 py-3 text-lg tracking-widest shadow-lg bg-accent/80 text-primary border-2 border-primary"
             >
               CREATIVE FULL STACK DEVELOPER
             </Badge>
