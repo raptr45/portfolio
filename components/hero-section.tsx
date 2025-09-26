@@ -151,7 +151,7 @@ export function HeroSection() {
               className="hover:bg-primary/20 !text-foreground hover:!text-primary dark:!text-foreground"
             >
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/abidalwassie"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

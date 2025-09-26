@@ -113,18 +113,18 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button
-            className="flex items-center space-x-3 transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2 -m-2"
+            className="flex items-center transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2 -m-2"
             onClick={() => scrollToSection("#home")}
             aria-label="Go to top of page"
           >
-            <div className="relative">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">A</span>
+            <div className="relative w-16 h-12 flex items-center">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-2xl">A</span>
               </div>
+              <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent pointer-events-none">
+                bid
+              </span>
             </div>
-            <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-              bid
-            </span>
           </button>
 
           {/* Desktop Navigation */}
