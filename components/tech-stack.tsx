@@ -69,7 +69,7 @@ export function TechStack() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {techStack.map((category, index) => {
+          {techStack.map((category) => {
             const IconComponent = category.icon;
 
             return (

@@ -47,7 +47,7 @@ export function HeroSection() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance"
           >
-            Hi, I'm <span className="text-primary">Abid Al Wassie</span>
+            Hi, I&apos;m <span className="text-primary">Abid Al Wassie</span>
           </motion.h1>
 
           {/* Description */}

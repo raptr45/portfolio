@@ -22,6 +22,30 @@ export interface YouTubeVideo {
   };
 }
 
+export interface PlaylistItem {
+  id: string;
+  snippet: {
+    title: string;
+    description?: string;
+    publishedAt: string;
+    thumbnails: {
+      high: {
+        url: string;
+      };
+      medium?: {
+        url: string;
+      };
+      default?: {
+        url: string;
+      };
+    };
+    resourceId: {
+      videoId: string;
+    };
+    playlistId: string;
+  };
+}
+
 export interface YouTubePlaylist {
   id: string;
   snippet: {

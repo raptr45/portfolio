@@ -6,7 +6,24 @@ import { AboutSection, WorkSection } from "@/components/placeholder-sections";
 import { ServicesSection } from "@/components/services-section";
 import { TechStack } from "@/components/tech-stack";
 import { YouTubeSection } from "@/components/youtube-section";
-import type { YouTubeData } from "@/types/youtube";
+import type { PlaylistItem, YouTubeData } from "@/types/youtube";
+
+interface YouTubePlaylistAPI {
+  id: string;
+  snippet: {
+    title: string;
+    description: string;
+    thumbnails: {
+      high: { url: string };
+      medium?: { url: string };
+      default?: { url: string };
+    };
+    publishedAt: string;
+  };
+  contentDetails: {
+    itemCount: number;
+  };
+}
 
 const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3";
 const CHANNEL_ID = "UCYVf_0t2qsjyHILRsLatlHg";
@@ -31,27 +48,24 @@ async function getYouTubeData(): Promise<YouTubeData> {
     const playlistsData = await playlistsRes.json();
     const playlists = playlistsData.items || [];
 
+    // Helper function to fetch videos for a playlist
+    const getPlaylistVideos = async (
+      playlistId: string
+    ): Promise<PlaylistItem[]> => {
+      const videosUrl = `${YOUTUBE_API_BASE}/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`;
+      const videosResponse = await fetch(videosUrl);
+      const videosData = await videosResponse.json();
+      return videosData.items || [];
+    };
+
     // Fetch videos for each playlist
     const playlistsWithVideos = await Promise.all(
-      playlists.map(async (playlist: any) => {
+      playlists.map(async (playlist: YouTubePlaylistAPI) => {
         try {
-          const videosRes = await fetch(
-            `${YOUTUBE_API_BASE}/playlistItems?part=snippet&playlistId=${playlist.id}&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`,
-            { next: { revalidate: 3600 } }
-          );
-
-          if (!videosRes.ok) {
-            console.warn(`Failed to fetch videos for playlist ${playlist.id}`);
-            return {
-              ...playlist,
-              videos: [],
-            };
-          }
-
-          const videosData = await videosRes.json();
+          const videos = await getPlaylistVideos(playlist.id);
           return {
             ...playlist,
-            videos: videosData.items || [],
+            videos,
           };
         } catch (error) {
           console.error(

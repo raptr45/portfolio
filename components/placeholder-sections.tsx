@@ -29,7 +29,7 @@ export function AboutSection() {
         <Card className="max-w-4xl mx-auto">
           <CardContent className="p-8">
             <p className="text-lg leading-relaxed text-center">
-              I'm a dedicated full-stack developer who loves creating innovative
+              I&apos;m a dedicated full-stack developer who loves creating innovative
               solutions and bringing ideas to life through code. With experience
               in both frontend and backend technologies, I enjoy building
               scalable applications that provide exceptional user experiences.
@@ -57,7 +57,7 @@ export function WorkSection() {
             </Badge>
             <h2 className="text-3xl font-bold mb-4">My Work</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A showcase of projects I've worked on
+              A showcase of projects I&apos;ve worked on
             </p>
           </motion.div>
         </div>
