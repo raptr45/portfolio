@@ -3,17 +3,61 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
+import {
+  Briefcase,
+  BriefcaseIcon,
+  Code,
+  CodeIcon,
+  Mail,
+  MailIcon,
+  Menu,
+  Settings,
+  SettingsIcon,
+  User,
+  UserCheck,
+  Youtube,
+  YoutubeIcon,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Work", href: "#work" },
-  { name: "Skills", href: "#skills" },
-  { name: "YouTube", href: "#youtube" },
-  { name: "Services", href: "#services" },
-  { name: "Contact", href: "#contact" },
+  {
+    name: "About",
+    href: "#about",
+    icon: User,
+    activeIcon: UserCheck,
+  },
+  {
+    name: "Work",
+    href: "#work",
+    icon: Briefcase,
+    activeIcon: BriefcaseIcon,
+  },
+  {
+    name: "Skills",
+    href: "#skills",
+    icon: Code,
+    activeIcon: CodeIcon,
+  },
+  {
+    name: "YouTube",
+    href: "#youtube",
+    icon: Youtube,
+    activeIcon: YoutubeIcon,
+  },
+  {
+    name: "Services",
+    href: "#services",
+    icon: Settings,
+    activeIcon: SettingsIcon,
+  },
+  {
+    name: "Hire me",
+    href: "#contact",
+    icon: Mail,
+    activeIcon: MailIcon,
+  },
 ];
 
 export function Navbar() {
@@ -85,25 +129,36 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2">
-            {navItems.map((item) => (
-              <Button
-                key={item.name}
-                variant="ghost"
-                size="lg"
-                className={cn(
-                  "text-lg font-semibold transition-all duration-200 px-6 py-3 rounded-full relative",
-                  activeSection === item.href.slice(1)
-                    ? "text-primary bg-primary/15 shadow-md border-2 border-primary/30"
-                    : "text-foreground hover:text-primary hover:bg-primary/10 hover:shadow-md hover:scale-105"
-                )}
-                onClick={() => scrollToSection(item.href)}
-              >
-                {item.name}
-                {activeSection === item.href.slice(1) && (
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
-                )}
-              </Button>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
+              const IconComponent = isActive ? item.activeIcon : item.icon;
+
+              return (
+                <Button
+                  key={item.name}
+                  variant="ghost"
+                  size="lg"
+                  className={cn(
+                    "text-lg font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2",
+                    isActive
+                      ? "text-primary bg-primary/15 shadow-md border-2 border-primary/30"
+                      : "text-foreground hover:text-primary hover:bg-primary/10 hover:shadow-md hover:scale-105"
+                  )}
+                  onClick={() => scrollToSection(item.href)}
+                >
+                  <IconComponent
+                    className={cn(
+                      "h-5 w-5 transition-all duration-200",
+                      isActive ? "text-primary" : "text-current"
+                    )}
+                  />
+                  {item.name}
+                  {isActive && (
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
+                  )}
+                </Button>
+              );
+            })}
           </div>
 
           {/* Theme Toggle & Mobile Menu */}
@@ -119,21 +174,34 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-64">
                 <div className="flex flex-col space-y-4 mt-8">
-                  {navItems.map((item) => (
-                    <Button
-                      key={item.name}
-                      variant="ghost"
-                      className={cn(
-                        "justify-start text-left",
-                        activeSection === item.href.slice(1)
-                          ? "text-primary bg-primary/10"
-                          : "text-muted-foreground"
-                      )}
-                      onClick={() => scrollToSection(item.href)}
-                    >
-                      {item.name}
-                    </Button>
-                  ))}
+                  {navItems.map((item) => {
+                    const isActive = activeSection === item.href.slice(1);
+                    const IconComponent = isActive
+                      ? item.activeIcon
+                      : item.icon;
+
+                    return (
+                      <Button
+                        key={item.name}
+                        variant="ghost"
+                        className={cn(
+                          "justify-start text-left flex items-center gap-3 px-4 py-3",
+                          isActive
+                            ? "text-primary bg-primary/10"
+                            : "text-muted-foreground hover:text-foreground"
+                        )}
+                        onClick={() => scrollToSection(item.href)}
+                      >
+                        <IconComponent
+                          className={cn(
+                            "h-5 w-5",
+                            isActive ? "text-primary" : "text-current"
+                          )}
+                        />
+                        {item.name}
+                      </Button>
+                    );
+                  })}
                 </div>
               </SheetContent>
             </Sheet>
