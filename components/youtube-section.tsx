@@ -14,18 +14,20 @@ interface YouTubeSectionProps {
   data: YouTubeData;
 }
 
-const filterOptions = [
-  { id: "all", label: "All" },
-  { id: "PLIWGHKiGCTxSEXgpAfdBXXJWC0YGA4R0v", label: "Unity" },
-  { id: "backend", label: "Godot" },
-  { id: "others", label: "Others" },
-];
-
 export function YouTubeSection({ data }: YouTubeSectionProps) {
   const [filter, setFilter] = useState("all");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  if (!data?.items?.length) {
+  // Create filter options from playlists
+  const filterOptions = [
+    { id: "all", label: "All" },
+    ...(data?.playlists?.map((playlist) => ({
+      id: playlist.id,
+      label: playlist.snippet.title,
+    })) || []),
+  ];
+
+  if (!data?.playlists?.length && !data?.items?.length) {
     return (
       <section id="youtube" className="py-24">
         <div className="container mx-auto px-4">
@@ -40,9 +42,12 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
     );
   }
 
-  const filteredVideos = data.items.filter((item) => {
-    return filter === "all" || item.snippet.playlistId === filter;
-  });
+  // Get filtered videos based on selected playlist
+  const filteredVideos =
+    filter === "all"
+      ? data.items || []
+      : data.playlists?.find((playlist) => playlist.id === filter)?.videos ||
+        [];
 
   const copyToClipboard = async (videoUrl: string, videoId: string) => {
     try {
