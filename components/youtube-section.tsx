@@ -128,7 +128,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                   transition={{ duration: 0.3 }}
                 >
                   <Card
-                    className="group overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className="group overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 pt-0 pb-6"
                     onClick={() => openVideo(videoUrl)}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {

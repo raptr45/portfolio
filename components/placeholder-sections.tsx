@@ -253,7 +253,7 @@ function ProjectCard({
 
   return (
     <Card
-      className="group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden bg-card border-border h-full flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+      className="group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden bg-card border-border h-full flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 pt-0 pb-6"
       onClick={handleCardClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
