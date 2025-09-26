@@ -3,60 +3,66 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import {
-  Briefcase,
-  BriefcaseIcon,
-  Code,
-  CodeIcon,
-  Mail,
-  MailIcon,
-  Menu,
-  Settings,
-  SettingsIcon,
-  User,
-  UserCheck,
-  Youtube,
-  YoutubeIcon,
-} from "lucide-react";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
+
+// Heroicons imports - outline versions
+import {
+  BoltIcon,
+  BookOpenIcon,
+  BriefcaseIcon,
+  Cog6ToothIcon,
+  EnvelopeIcon,
+  PlayIcon,
+} from "@heroicons/react/24/outline";
+
+// Heroicons imports - solid versions
+import {
+  BoltIcon as BoltSolidIcon,
+  BookOpenIcon as BookOpenSolidIcon,
+  BriefcaseIcon as BriefcaseSolidIcon,
+  Cog6ToothIcon as Cog6ToothSolidIcon,
+  EnvelopeIcon as EnvelopeSolidIcon,
+  PlayIcon as PlaySolidIcon,
+} from "@heroicons/react/24/solid";
 
 const navItems = [
   {
     name: "About",
     href: "#about",
-    icon: User,
-    activeIcon: UserCheck,
+    icon: BookOpenIcon,
+    activeIcon: BookOpenSolidIcon,
   },
   {
     name: "Work",
     href: "#work",
-    icon: Briefcase,
-    activeIcon: BriefcaseIcon,
+    icon: BriefcaseIcon,
+    activeIcon: BriefcaseSolidIcon,
   },
   {
     name: "Skills",
     href: "#skills",
-    icon: Code,
-    activeIcon: CodeIcon,
+    icon: BoltIcon,
+    activeIcon: BoltSolidIcon,
   },
   {
     name: "YouTube",
     href: "#youtube",
-    icon: Youtube,
-    activeIcon: YoutubeIcon,
+    icon: PlayIcon,
+    activeIcon: PlaySolidIcon,
   },
   {
     name: "Services",
     href: "#services",
-    icon: Settings,
-    activeIcon: SettingsIcon,
+    icon: Cog6ToothIcon,
+    activeIcon: Cog6ToothSolidIcon,
   },
   {
     name: "Hire me",
     href: "#contact",
-    icon: Mail,
-    activeIcon: MailIcon,
+    icon: EnvelopeIcon,
+    activeIcon: EnvelopeSolidIcon,
   },
 ];
 
