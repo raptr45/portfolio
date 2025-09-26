@@ -41,22 +41,33 @@ const badgeVariants = {
 
 export function TechStack() {
   return (
-    <section id="skills" className="py-24">
-      <div className="container mx-auto px-4">
+    <section
+      id="skills"
+      className="py-32 bg-gradient-to-br from-background via-muted/20 to-background"
+    >
+      <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Badge variant="secondary" className="mb-4">
-              Skills
+            <Badge
+              variant="secondary"
+              className="mb-6 px-6 py-3 text-lg font-semibold bg-primary/10 text-primary border-2 border-primary/20"
+            >
+              🛠️ Skills
             </Badge>
-            <h2 className="text-3xl font-bold mb-4">Tech Stack</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Technologies and tools I work with to build modern applications
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+              Tech Stack
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
+              Technologies and tools I work with to build{" "}
+              <span className="text-primary font-semibold">
+                modern applications
+              </span>
             </p>
           </motion.div>
         </div>
@@ -74,15 +85,17 @@ export function TechStack() {
 
             return (
               <motion.div key={category.type} variants={itemVariants}>
-                <Card className="h-full group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-border">
-                  <CardHeader className="pb-4">
-                    <CardTitle className="flex items-center gap-3 text-lg">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                        <IconComponent className="h-5 w-5" />
+                <Card className="h-full group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border-2 border-primary/10 hover:border-primary/30 bg-card/80 backdrop-blur-sm">
+                  <CardHeader className="pb-6">
+                    <CardTitle className="flex items-center gap-4 text-2xl md:text-3xl">
+                      <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 text-primary group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all duration-300 shadow-lg">
+                        <IconComponent className="h-7 w-7" />
                       </div>
-                      <span className="text-balance">{category.type}</span>
+                      <span className="text-balance font-bold text-foreground">
+                        {category.type}
+                      </span>
                     </CardTitle>
-                    <Separator className="mt-3" />
+                    <Separator className="mt-4" />
                   </CardHeader>
 
                   <CardContent>
@@ -103,14 +116,14 @@ export function TechStack() {
                         >
                           <Badge
                             variant="outline"
-                            className="px-3 py-1.5 text-sm font-medium hover:bg-secondary/80 cursor-default transition-colors duration-200 flex items-center gap-2"
+                            className="px-4 py-2 text-base font-semibold hover:bg-primary/10 hover:text-primary hover:border-primary/50 cursor-default transition-all duration-200 flex items-center gap-2 border-2"
                           >
                             {skill.icon && (
                               <Image
                                 src={skill.icon || "/placeholder.svg"}
                                 alt={`${skill.name} icon`}
-                                width={16}
-                                height={16}
+                                width={20}
+                                height={20}
                                 className="object-contain"
                               />
                             )}

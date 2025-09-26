@@ -62,39 +62,43 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-xl border-b-2 border-primary/20 shadow-xl"
+          : "bg-background/10 backdrop-blur-sm"
       )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">
-                  A
-                </span>
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-xl">A</span>
               </div>
             </div>
-            <span className="font-semibold text-lg">bid</span>
+            <span className="font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              bid
+            </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <Button
                 key={item.name}
                 variant="ghost"
+                size="lg"
                 className={cn(
-                  "text-sm font-medium transition-colors",
+                  "text-lg font-semibold transition-all duration-200 px-6 py-3 rounded-full relative",
                   activeSection === item.href.slice(1)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-primary bg-primary/15 shadow-md border-2 border-primary/30"
+                    : "text-foreground hover:text-primary hover:bg-primary/10 hover:shadow-md hover:scale-105"
                 )}
                 onClick={() => scrollToSection(item.href)}
               >
                 {item.name}
+                {activeSection === item.href.slice(1) && (
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
+                )}
               </Button>
             ))}
           </div>

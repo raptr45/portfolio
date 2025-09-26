@@ -12,37 +12,63 @@ import { useCallback, useMemo, useState } from "react";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+    <section
+      id="about"
+      className="py-32 bg-gradient-to-br from-background via-muted/20 to-background"
+    >
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Badge variant="secondary" className="mb-4">
-              About
+            <Badge
+              variant="secondary"
+              className="mb-6 px-6 py-3 text-lg font-semibold bg-primary/10 text-primary border-2 border-primary/20"
+            >
+              🧑‍💻 About Me
             </Badge>
-            <h2 className="text-3xl font-bold mb-4">About Me</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              About Me
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
               Passionate full-stack developer with expertise in modern web
-              technologies
+              technologies and creative problem-solving
             </p>
           </motion.div>
         </div>
 
-        <Card className="max-w-4xl mx-auto">
-          <CardContent className="p-8">
-            <p className="text-lg leading-relaxed text-center">
-              I&apos;m a dedicated full-stack developer who loves creating
-              innovative solutions and bringing ideas to life through code. With
-              experience in both frontend and backend technologies, I enjoy
-              building scalable applications that provide exceptional user
-              experiences.
-            </p>
-          </CardContent>
-        </Card>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <Card className="max-w-5xl mx-auto shadow-2xl border-2 border-primary/10 bg-card/80 backdrop-blur-sm">
+            <CardContent className="p-12">
+              <p className="text-2xl md:text-3xl leading-relaxed text-center text-foreground font-medium">
+                I&apos;m a dedicated full-stack developer who loves creating
+                <span className="text-primary font-bold">
+                  {" "}
+                  innovative solutions
+                </span>{" "}
+                and bringing ideas to life through code. With experience in both{" "}
+                <span className="text-blue-600 font-semibold">
+                  frontend
+                </span>{" "}
+                and{" "}
+                <span className="text-green-600 font-semibold">backend</span>{" "}
+                technologies, I enjoy building{" "}
+                <span className="text-purple-600 font-semibold">
+                  scalable applications
+                </span>{" "}
+                that provide exceptional user experiences.
+              </p>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );
@@ -77,24 +103,31 @@ export function WorkSection() {
   );
 
   return (
-    <section id="work" className="py-24">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section
+      id="work"
+      className="py-32 bg-gradient-to-br from-muted/10 via-background to-muted/10"
+    >
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Badge variant="secondary" className="mb-4">
-              Portfolio
+            <Badge
+              variant="secondary"
+              className="mb-6 px-6 py-3 text-lg font-semibold bg-primary/10 text-primary border-2 border-primary/20"
+            >
+              🚀 Portfolio
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
               Featured Work
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              A showcase of projects I&apos;ve worked on, from concept to
-              deployment.
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">
+              A showcase of projects I&apos;ve worked on, from{" "}
+              <span className="text-primary font-semibold">concept</span> to
+              <span className="text-green-600 font-semibold"> deployment</span>.
             </p>
           </motion.div>
         </div>
@@ -132,7 +165,7 @@ export function WorkSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-2xl font-semibold text-center mb-8"
+              className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
             >
               Other Projects
             </motion.h3>
