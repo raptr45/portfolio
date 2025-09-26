@@ -58,7 +58,7 @@ export function Footer() {
                 variant="ghost"
                 size="icon"
                 asChild
-                className="hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="hover:bg-primary hover:text-primary-foreground transition-colors !text-foreground dark:!text-foreground"
               >
                 <a
                   href={href}
@@ -66,7 +66,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label={label}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-5 w-5 !text-foreground dark:!text-foreground" />
                 </a>
               </Button>
             ))}

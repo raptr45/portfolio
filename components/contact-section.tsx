@@ -117,7 +117,7 @@ export function ContactSection() {
                     variant="outline"
                     size="lg"
                     asChild
-                    className="hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-200 bg-transparent border-2 border-primary/20 hover:border-primary"
+                    className="hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-200 border-2 border-primary/20 hover:border-primary !text-foreground dark:!text-foreground"
                   >
                     <a
                       href={href}
@@ -125,7 +125,7 @@ export function ContactSection() {
                       rel="noopener noreferrer"
                       aria-label={label}
                     >
-                      <Icon className="h-6 w-6" />
+                      <Icon className="h-6 w-6 !text-foreground dark:!text-foreground" />
                     </a>
                   </Button>
                 ))}

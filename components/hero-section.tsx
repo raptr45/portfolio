@@ -133,7 +133,7 @@ export function HeroSection() {
               variant="ghost"
               size="icon"
               asChild
-              className="hover:bg-primary/20"
+              className="hover:bg-primary/20 !text-foreground hover:!text-primary dark:!text-foreground"
             >
               <a
                 href="https://github.com/AbidAlWassie"
@@ -141,14 +141,14 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <Github className="h-7 w-7" />
+                <Github className="h-7 w-7 !text-foreground dark:!text-foreground" />
               </a>
             </Button>
             <Button
               variant="ghost"
               size="icon"
               asChild
-              className="hover:bg-primary/20"
+              className="hover:bg-primary/20 !text-foreground hover:!text-primary dark:!text-foreground"
             >
               <a
                 href="https://linkedin.com"
@@ -156,17 +156,17 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-7 w-7" />
+                <Linkedin className="h-7 w-7 !text-foreground dark:!text-foreground" />
               </a>
             </Button>
             <Button
               variant="ghost"
               size="icon"
               asChild
-              className="hover:bg-primary/20"
+              className="hover:bg-primary/20 !text-foreground hover:!text-primary dark:!text-foreground"
             >
               <a href="mailto:contact@example.com" aria-label="Email">
-                <Mail className="h-7 w-7" />
+                <Mail className="h-7 w-7 !text-foreground dark:!text-foreground" />
               </a>
             </Button>
           </motion.div>

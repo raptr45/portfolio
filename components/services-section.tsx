@@ -123,7 +123,7 @@ export function ServicesSection() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-200 bg-transparent border-2 border-primary/20 hover:border-primary text-lg font-semibold"
+                    className="group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-200 border-2 border-primary/20 hover:border-primary text-lg font-semibold !text-foreground hover:!text-primary-foreground dark:!text-foreground"
                   >
                     Read more
                   </Button>
