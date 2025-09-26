@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { techStack } from "@/lib/tech-data";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -94,7 +95,7 @@ export function TechStack() {
                     >
                       {category.tech.map((skill, skillIndex) => (
                         <motion.div
-                          key={skill}
+                          key={skill.name}
                           variants={badgeVariants}
                           custom={skillIndex}
                           whileHover={{ scale: 1.05 }}
@@ -102,9 +103,18 @@ export function TechStack() {
                         >
                           <Badge
                             variant="outline"
-                            className="px-3 py-1.5 text-sm font-medium hover:bg-secondary/80 cursor-default transition-colors duration-200"
+                            className="px-3 py-1.5 text-sm font-medium hover:bg-secondary/80 cursor-default transition-colors duration-200 flex items-center gap-2"
                           >
-                            {skill}
+                            {skill.icon && (
+                              <Image
+                                src={skill.icon || "/placeholder.svg"}
+                                alt={`${skill.name} icon`}
+                                width={16}
+                                height={16}
+                                className="object-contain"
+                              />
+                            )}
+                            {skill.name}
                           </Badge>
                         </motion.div>
                       ))}
