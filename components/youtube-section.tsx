@@ -75,40 +75,65 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
   };
 
   return (
-    <section id="youtube" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section
+      id="youtube"
+      className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+    >
+      {/* Background decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-gradient-to-br from-red-500/10 to-pink-500/10 blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Badge variant="secondary" className="mb-4">
-              YouTube
+            <Badge
+              variant="secondary"
+              className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 text-white backdrop-blur-sm"
+            >
+              🎥 YouTube
             </Badge>
-            <h2 className="text-3xl font-bold mb-4">Latest Videos</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Check out my latest tutorials and development content
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent">
+              Latest Videos
+            </h2>
+            <p className="text-white/80 max-w-3xl mx-auto text-lg leading-relaxed">
+              Check out my latest tutorials and development content where I
+              share insights about modern web development
             </p>
           </motion.div>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-3 mb-16"
+        >
           {filterOptions.map((option) => (
             <Button
               key={option.id}
-              variant={filter === option.id ? "default" : "outline"}
-              size="sm"
+              variant={filter === option.id ? "default" : "ghost"}
+              size="lg"
               onClick={() => setFilter(option.id)}
-              className="transition-all duration-200"
+              className={`px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border ${
+                filter === option.id
+                  ? "bg-red-500 hover:bg-red-600 text-white border-red-400 shadow-lg shadow-red-500/25"
+                  : "bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40"
+              }`}
             >
               {option.label}
             </Button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Video Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -128,7 +153,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                   transition={{ duration: 0.3 }}
                 >
                   <Card
-                    className="group overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 pt-0 pb-6"
+                    className="group overflow-hidden transition-all duration-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 pt-0 pb-6 bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-red-500/10 hover:scale-105"
                     onClick={() => openVideo(videoUrl)}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
@@ -149,32 +174,41 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
 
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                        <div className="bg-red-600 hover:bg-red-700 text-white rounded-full p-3">
-                          <Play className="h-6 w-6" />
-                        </div>
-
-                        <Button
-                          size="icon"
-                          variant="secondary"
-                          onClick={(e) =>
-                            copyToClipboard(e, videoUrl, resourceId.videoId)
-                          }
-                          aria-label="Copy video link"
-                          className="rounded-full"
+                      {/* Enhanced Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-full p-4 shadow-2xl shadow-red-500/50 backdrop-blur-sm border border-red-400/30"
                         >
-                          {copiedId === resourceId.videoId ? (
-                            <Check className="h-4 w-4" />
-                          ) : (
-                            <Copy className="h-4 w-4" />
-                          )}
-                        </Button>
+                          <Play className="h-8 w-8" fill="currentColor" />
+                        </motion.div>
+
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Button
+                            size="icon"
+                            variant="secondary"
+                            onClick={(e) =>
+                              copyToClipboard(e, videoUrl, resourceId.videoId)
+                            }
+                            aria-label="Copy video link"
+                            className="rounded-full p-3 bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30 hover:border-white/50 text-white"
+                          >
+                            {copiedId === resourceId.videoId ? (
+                              <Check className="h-5 w-5" />
+                            ) : (
+                              <Copy className="h-5 w-5" />
+                            )}
+                          </Button>
+                        </motion.div>
                       </div>
                     </div>
 
-                    <CardContent className="p-4">
-                      <h3 className="font-semibold text-sm line-clamp-2 leading-tight">
+                    <CardContent className="p-6">
+                      <h3 className="font-semibold text-base line-clamp-2 leading-tight text-white group-hover:text-red-300 transition-colors duration-300">
                         {title}
                       </h3>
                     </CardContent>
@@ -186,11 +220,17 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
         </div>
 
         {filteredVideos.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">
-              No videos found for the selected filter.
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-16"
+          >
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 max-w-md mx-auto">
+              <p className="text-white/70 text-lg">
+                No videos found for the selected filter.
+              </p>
+            </div>
+          </motion.div>
         )}
       </div>
     </section>

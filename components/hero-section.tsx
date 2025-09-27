@@ -99,13 +99,22 @@ export function HeroSection() {
         />
 
         {/* Small floating particles */}
-        {[...Array(8)].map((_, i) => (
+        {[
+          { top: 15, left: 10, duration: 8, delay: 0 },
+          { top: 25, left: 85, duration: 9, delay: 1 },
+          { top: 45, left: 20, duration: 7, delay: 2 },
+          { top: 65, left: 75, duration: 10, delay: 3 },
+          { top: 80, left: 45, duration: 6, delay: 4 },
+          { top: 35, left: 60, duration: 8, delay: 1.5 },
+          { top: 70, left: 30, duration: 9, delay: 2.5 },
+          { top: 20, left: 90, duration: 7, delay: 0.5 },
+        ].map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-4 h-4 rounded-full bg-gradient-to-r from-primary/40 to-blue-500/40"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+              top: `${particle.top}%`,
+              left: `${particle.left}%`,
             }}
             animate={{
               y: [0, -100, 0],
@@ -113,10 +122,10 @@ export function HeroSection() {
               scale: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 6 + Math.random() * 4,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: Math.random() * 5,
+              delay: particle.delay,
             }}
           />
         ))}
@@ -171,8 +180,6 @@ export function HeroSection() {
             }}
             style={{ transformOrigin: "300px 150px" }}
           />
-
-
         </svg>
       </div>
 
