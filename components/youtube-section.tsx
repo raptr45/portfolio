@@ -96,16 +96,22 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
           >
             <Badge
               variant="secondary"
-              className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 text-white backdrop-blur-sm"
+              className="mb-8 px-6 py-3 text-base bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 text-white backdrop-blur-sm"
             >
               🎥 YouTube
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent">
               Latest Videos
             </h2>
-            <p className="text-white/80 max-w-3xl mx-auto text-lg leading-relaxed">
-              Check out my latest tutorials and development content where I
-              share insights about modern web development
+            <p className="text-gray-50/80 max-w-3xl mx-auto text-2xl leading-relaxed">
+              Watch my{" "}
+              <span className="bg-gradient-to-r from-red-300 to-pink-300 bg-clip-text text-transparent font-bold">
+                tutorials and development content
+              </span>{" "}
+              where I share insights about{" "}
+              <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent font-bold">
+                modern web development
+              </span>
             </p>
           </motion.div>
         </div>
