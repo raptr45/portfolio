@@ -150,7 +150,7 @@ export function Navbar() {
               </span>
             </div>
             {activeSection === "home" && (
-              <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
+              <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full" />
             )}
           </button>
 
