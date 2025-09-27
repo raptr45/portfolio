@@ -87,7 +87,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,11 +96,11 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
           >
             <Badge
               variant="secondary"
-              className="mb-8 px-6 py-3 text-base bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 text-white backdrop-blur-sm"
+              className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 text-white backdrop-blur-sm"
             >
               🎥 YouTube
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent">
               Latest Videos
             </h2>
             <p className="text-gray-50/80 max-w-3xl mx-auto text-2xl leading-relaxed">
@@ -122,7 +122,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          className="flex flex-wrap justify-center gap-3 mb-10"
         >
           {filterOptions.map((option) => (
             <Button
