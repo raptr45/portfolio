@@ -81,7 +81,7 @@ export function Navbar() {
     };
 
     const handleSectionChange = () => {
-      const sections = navItems.map((item) => item.href.slice(1));
+      const sections = ["home", ...navItems.map((item) => item.href.slice(1))];
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -124,7 +124,12 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button
-            className="flex items-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2 -m-2 cursor-pointer group bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 border border-primary/20 hover:border-primary/40 min-h-[48px] min-w-[80px] hover:shadow-md"
+            className={cn(
+              "flex items-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg px-4 -m-2 cursor-pointer group min-h-[48px] min-w-[80px] hover:shadow-md relative",
+              activeSection === "home"
+                ? "bg-gradient-to-r from-primary/15 to-blue-600/15 border border-primary/30 shadow-md"
+                : "bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 border border-primary/20 hover:border-primary/40"
+            )}
             onClick={() => scrollToSection("#home")}
             aria-label="Go to top of page"
             style={{ transform: "translateZ(0)" }}
@@ -144,6 +149,9 @@ export function Navbar() {
                 bid
               </span>
             </div>
+            {activeSection === "home" && (
+              <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
+            )}
           </button>
 
           {/* Desktop Navigation */}
