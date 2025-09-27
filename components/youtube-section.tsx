@@ -3,6 +3,11 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { YouTubeData } from "@/types/youtube";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy, Play } from "lucide-react";
@@ -182,38 +187,60 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
 
                       {/* Enhanced Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-full p-4 shadow-2xl shadow-red-500/50 backdrop-blur-sm border border-red-400/30"
-                        >
-                          <Play className="h-8 w-8" fill="currentColor" />
-                        </motion.div>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <motion.div
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                              className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-full p-4 shadow-2xl shadow-red-500/50 backdrop-blur-sm border border-red-400/30 cursor-pointer"
+                            >
+                              <Play className="h-8 w-8" fill="currentColor" />
+                            </motion.div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Watch on YouTube</p>
+                          </TooltipContent>
+                        </Tooltip>
 
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Button
-                            size="icon"
-                            variant="secondary"
-                            onClick={(e) =>
-                              copyToClipboard(e, videoUrl, resourceId.videoId)
-                            }
-                            aria-label="Copy video link"
-                            className="rounded-full p-3 bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30 hover:border-white/50 text-white"
-                          >
-                            {copiedId === resourceId.videoId ? (
-                              <Check className="h-5 w-5" />
-                            ) : (
-                              <Copy className="h-5 w-5" />
-                            )}
-                          </Button>
-                        </motion.div>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <motion.div
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <Button
+                                size="icon"
+                                variant="secondary"
+                                onClick={(e) =>
+                                  copyToClipboard(
+                                    e,
+                                    videoUrl,
+                                    resourceId.videoId
+                                  )
+                                }
+                                aria-label="Copy video link"
+                                className="rounded-full p-3 bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30 hover:border-white/50 text-white"
+                              >
+                                {copiedId === resourceId.videoId ? (
+                                  <Check className="h-5 w-5" />
+                                ) : (
+                                  <Copy className="h-5 w-5" />
+                                )}
+                              </Button>
+                            </motion.div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>
+                              {copiedId === resourceId.videoId
+                                ? "Copied!"
+                                : "Copy link"}
+                            </p>
+                          </TooltipContent>
+                        </Tooltip>
                       </div>
                     </div>
 
-                    <CardContent className="p-6">
+                    <CardContent>
                       <h3 className="font-semibold text-base line-clamp-2 leading-tight text-white group-hover:text-red-300 transition-colors duration-300">
                         {title}
                       </h3>
