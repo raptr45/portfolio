@@ -1,7 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -119,12 +124,20 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button
-            className="flex items-center transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2 -m-2"
+            className="flex items-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2 -m-2 cursor-pointer group bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 border border-primary/20 hover:border-primary/40 min-h-[48px] min-w-[80px] hover:shadow-md"
             onClick={() => scrollToSection("#home")}
             aria-label="Go to top of page"
+            style={{ transform: "translateZ(0)" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform =
+                "translateY(-1px) translateZ(0)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "translateY(0) translateZ(0)")
+            }
           >
             <div className="relative w-16 h-12 flex items-center">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
                 <span className="text-white font-bold text-2xl">A</span>
               </div>
               <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent pointer-events-none">
@@ -145,20 +158,29 @@ export function Navbar() {
                   variant="ghost"
                   size="lg"
                   className={cn(
-                    "text-lg font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2",
+                    "text-lg font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 cursor-pointer border border-transparent min-h-[48px] hover:shadow-md",
                     isActive
-                      ? "text-primary bg-primary/15 shadow-md border-2 border-primary/30"
-                      : "text-foreground hover:text-primary hover:bg-primary/10 hover:shadow-md hover:scale-105"
+                      ? "text-primary bg-primary/15 shadow-md border-primary/30 hover:bg-primary/20"
+                      : "text-foreground hover:text-primary hover:bg-primary/10 border-primary/10 hover:border-primary/30 bg-primary/5"
                   )}
                   onClick={() => scrollToSection(item.href)}
+                  style={{ transform: "translateZ(0)" }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.transform =
+                      "translateY(-1px) translateZ(0)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.transform =
+                      "translateY(0) translateZ(0)")
+                  }
                 >
                   <IconComponent
                     className={cn(
-                      "h-5 w-5 transition-all duration-200",
+                      "h-5 w-5 transition-colors duration-200 flex-shrink-0",
                       isActive ? "text-primary" : "text-current"
                     )}
                   />
-                  {item.name}
+                  <span className="whitespace-nowrap">{item.name}</span>
                   {isActive && (
                     <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
                   )}
@@ -174,11 +196,16 @@ export function Navbar() {
             {/* Mobile Menu */}
             <Sheet>
               <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="cursor-pointer border border-primary/10 hover:border-primary/30 bg-primary/5 hover:bg-primary/10 hover:shadow-md transition-all duration-200"
+                >
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-64">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col space-y-4 mt-8">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.slice(1);
@@ -191,20 +218,20 @@ export function Navbar() {
                         key={item.name}
                         variant="ghost"
                         className={cn(
-                          "justify-start text-left flex items-center gap-3 px-4 py-3",
+                          "justify-start text-left flex items-center gap-3 px-4 py-3 cursor-pointer transition-all duration-200 min-h-[48px] border border-transparent hover:shadow-md",
                           isActive
-                            ? "text-primary bg-primary/10"
-                            : "text-muted-foreground hover:text-foreground"
+                            ? "text-primary bg-primary/15 border-primary/20"
+                            : "text-muted-foreground hover:text-foreground hover:bg-primary/10 border-primary/5 hover:border-primary/20"
                         )}
                         onClick={() => scrollToSection(item.href)}
                       >
                         <IconComponent
                           className={cn(
-                            "h-5 w-5",
+                            "h-5 w-5 flex-shrink-0",
                             isActive ? "text-primary" : "text-current"
                           )}
                         />
-                        {item.name}
+                        <span className="whitespace-nowrap">{item.name}</span>
                       </Button>
                     );
                   })}
