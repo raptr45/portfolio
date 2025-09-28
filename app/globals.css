@@ -442,12 +442,48 @@
     width: 100%;
   }
   
-  /* Loading States */
+  /* Enhanced Loading States */
+  .loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+  }
+
+  .loading-spinner {
+    @apply animate-spin rounded-full border-4 border-muted border-t-primary;
+  }
+
   .skeleton {
     @apply animate-pulse bg-muted rounded;
   }
-  
-  .loading-spinner {
-    @apply animate-spin rounded-full border-4 border-muted border-t-primary;
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Optimize animations for better performance */
+  .motion-safe {
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   }
 }

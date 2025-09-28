@@ -1,3 +1,4 @@
+import { LoadingScreen } from "@/components/loading-screen";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
@@ -7,11 +8,13 @@ import { Providers } from "./providers";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap", // Add font-display swap for better performance
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -27,12 +30,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preload critical resources */}
+        <link rel="dns-prefetch" href="https://www.googleapis.com" />
+        <link rel="dns-prefetch" href="https://i.ytimg.com" />
+      </head>
       {/* Adding suppressHydrationWarning to <body> as well because next-themes may mutate the class list on the client (adding light/dark) before/after hydration causing benign mismatches. */}
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
+          <LoadingScreen />
           <Suspense fallback={null}>{children}</Suspense>
         </Providers>
       </body>

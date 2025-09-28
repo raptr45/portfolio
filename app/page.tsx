@@ -1,12 +1,92 @@
-import { ContactSection } from "@/components/contact-section";
+import { ErrorBoundary } from "@/components/error-boundary";
+import type { PlaylistItem, YouTubeData } from "@/types/youtube";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+// Static imports for critical components
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
 import { Navbar } from "@/components/navbar";
-import { AboutSection, WorkSection } from "@/components/placeholder-sections";
-import { ServicesSection } from "@/components/services-section";
-import { TechStack } from "@/components/tech-stack";
-import { YouTubeSection } from "@/components/youtube-section";
-import type { PlaylistItem, YouTubeData } from "@/types/youtube";
+
+// Dynamic imports for non-critical components
+const AboutSection = dynamic(
+  () =>
+    import("@/components/placeholder-sections").then((mod) => ({
+      default: mod.AboutSection,
+    })),
+  {
+    loading: () => (
+      <div className="py-32 flex justify-center">
+        <div className="loading-spinner w-8 h-8"></div>
+      </div>
+    ),
+  }
+);
+const WorkSection = dynamic(
+  () =>
+    import("@/components/placeholder-sections").then((mod) => ({
+      default: mod.WorkSection,
+    })),
+  {
+    loading: () => (
+      <div className="py-32 flex justify-center">
+        <div className="loading-spinner w-8 h-8"></div>
+      </div>
+    ),
+  }
+);
+const TechStack = dynamic(
+  () =>
+    import("@/components/tech-stack").then((mod) => ({
+      default: mod.TechStack,
+    })),
+  {
+    loading: () => (
+      <div className="py-32 flex justify-center">
+        <div className="loading-spinner w-8 h-8"></div>
+      </div>
+    ),
+  }
+);
+const YouTubeSection = dynamic(
+  () =>
+    import("@/components/youtube-section").then((mod) => ({
+      default: mod.YouTubeSection,
+    })),
+  {
+    loading: () => (
+      <div className="py-32 flex justify-center">
+        <div className="loading-spinner w-8 h-8"></div>
+      </div>
+    ),
+  }
+);
+const ServicesSection = dynamic(
+  () =>
+    import("@/components/services-section").then((mod) => ({
+      default: mod.ServicesSection,
+    })),
+  {
+    loading: () => (
+      <div className="py-32 flex justify-center">
+        <div className="loading-spinner w-8 h-8"></div>
+      </div>
+    ),
+  }
+);
+const ContactSection = dynamic(
+  () =>
+    import("@/components/contact-section").then((mod) => ({
+      default: mod.ContactSection,
+    })),
+  {
+    loading: () => (
+      <div className="py-32 flex justify-center">
+        <div className="loading-spinner w-8 h-8"></div>
+      </div>
+    ),
+  }
+);
 
 interface YouTubePlaylistAPI {
   id: string;
@@ -102,12 +182,79 @@ export default async function Home() {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <WorkSection />
-      <TechStack />
-      <YouTubeSection data={youtubeData} />
-      <ServicesSection />
-      <ContactSection />
+
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="py-32 flex justify-center">
+              <div className="loading-spinner w-8 h-8"></div>
+            </div>
+          }
+        >
+          <AboutSection />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="py-32 flex justify-center">
+              <div className="loading-spinner w-8 h-8"></div>
+            </div>
+          }
+        >
+          <WorkSection />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="py-32 flex justify-center">
+              <div className="loading-spinner w-8 h-8"></div>
+            </div>
+          }
+        >
+          <TechStack />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="py-32 flex justify-center">
+              <div className="loading-spinner w-8 h-8"></div>
+            </div>
+          }
+        >
+          <YouTubeSection data={youtubeData} />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="py-32 flex justify-center">
+              <div className="loading-spinner w-8 h-8"></div>
+            </div>
+          }
+        >
+          <ServicesSection />
+        </Suspense>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="py-32 flex justify-center">
+              <div className="loading-spinner w-8 h-8"></div>
+            </div>
+          }
+        >
+          <ContactSection />
+        </Suspense>
+      </ErrorBoundary>
+
       <Footer />
     </main>
   );
