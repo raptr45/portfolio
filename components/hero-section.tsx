@@ -16,7 +16,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-[#0f2027] dark:via-[#2c5364] dark:to-[#232526]"
     >
       {/* Animated floating shapes */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -199,7 +199,7 @@ export function HeroSection() {
           >
             <Badge
               variant="secondary"
-              className="px-8 py-4 text-lg tracking-widest shadow-2xl bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="px-8 py-4 text-lg tracking-widest shadow-2xl bg-white/10 dark:bg-white/10 backdrop-blur-sm text-gray-800 dark:text-white border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/20 dark:hover:bg-white/20 transition-all duration-300"
             >
               CREATIVE FULL STACK DEVELOPER
             </Badge>
@@ -245,7 +245,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-2xl md:text-3xl text-white/90 mb-12 max-w-4xl mx-auto font-medium leading-relaxed"
+            className="text-2xl md:text-3xl text-gray-700 dark:text-white/90 mb-12 max-w-4xl mx-auto font-medium leading-relaxed"
           >
             I build{" "}
             <span className="text-primary font-bold bg-primary/10 px-3 py-1 rounded-lg">
@@ -253,7 +253,7 @@ export function HeroSection() {
             </span>{" "}
             with TypeScript, React, Next.js, and creative technologies.
             <br />
-            <span className="text-pink-300 font-semibold">
+            <span className="text-pink-600 dark:text-pink-300 font-semibold">
               Let&apos;s create something remarkable together.
             </span>
           </motion.p>
@@ -268,7 +268,7 @@ export function HeroSection() {
             <Button
               size="lg"
               onClick={() => scrollToSection("work")}
-              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold border-2 border-white/20"
+              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold border-2 border-gray-300/50 dark:border-white/20"
             >
               🚀 View My Work
             </Button>
@@ -276,7 +276,7 @@ export function HeroSection() {
               variant="outline"
               size="lg"
               onClick={() => scrollToSection("contact")}
-              className="text-2xl px-12 py-6 rounded-2xl border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/50 hover:scale-105 transition-all duration-300 font-bold"
+              className="text-2xl px-12 py-6 rounded-2xl border-2 border-gray-400/40 dark:border-white/30 bg-white/20 dark:bg-white/5 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white/30 dark:hover:bg-white/10 hover:border-gray-500/60 dark:hover:border-white/50 hover:scale-105 transition-all duration-300 font-bold"
             >
               ✉️ Get In Touch
             </Button>
@@ -297,7 +297,7 @@ export function HeroSection() {
                 variant="ghost"
                 size="icon"
                 asChild
-                className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 hover:border-white/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-white"
+                className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-gray-700 dark:text-white"
               >
                 <a
                   href="https://github.com/AbidAlWassie"
@@ -318,7 +318,7 @@ export function HeroSection() {
                 variant="ghost"
                 size="icon"
                 asChild
-                className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 hover:border-white/40 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 text-white"
+                className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 text-gray-700 dark:text-white"
               >
                 <a
                   href="https://linkedin.com/in/abidalwassie"
@@ -339,7 +339,7 @@ export function HeroSection() {
                 variant="ghost"
                 size="icon"
                 asChild
-                className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 hover:border-white/40 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300 text-white"
+                className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300 text-gray-700 dark:text-white"
               >
                 <a href="mailto:abidalwassie@outlook.com" aria-label="Email">
                   <Mail className="h-8 w-8" />
@@ -369,7 +369,7 @@ export function HeroSection() {
                 variant="ghost"
                 size="icon"
                 onClick={() => scrollToSection("about")}
-                className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 hover:border-white/40 hover:shadow-2xl transition-all duration-300 text-white group"
+                className="w-16 h-16 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
                 aria-label="Scroll to about section"
               >
                 <ArrowDown className="h-8 w-8 group-hover:scale-110 transition-transform duration-300" />
