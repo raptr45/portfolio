@@ -72,7 +72,7 @@ export function LoadingScreen() {
       document.removeEventListener("DOMContentLoaded", handleDOMContentLoaded);
       window.removeEventListener("load", handleLoad);
     };
-  }, []);
+  }, [setInitialLoading]);
 
   // Don't render anything until mounted to prevent hydration issues
   if (!mounted) return null;
