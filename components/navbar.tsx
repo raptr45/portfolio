@@ -125,7 +125,7 @@ export function Navbar() {
           {/* Logo */}
           <button
             className={cn(
-              "flex items-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg px-4 -m-2 cursor-pointer group min-h-[48px] min-w-[80px] hover:shadow-md relative",
+              "flex items-center transition-all duration-200 focus:outline-none focus:ring-2 rounded-lg px-4 -m-2 cursor-pointer group min-h-[48px] min-w-[80px] hover:shadow-md relative",
               activeSection === "home"
                 ? "bg-gradient-to-r from-primary/15 to-blue-600/15 border border-primary/30 shadow-md"
                 : "bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 border border-primary/20 hover:border-primary/40"
