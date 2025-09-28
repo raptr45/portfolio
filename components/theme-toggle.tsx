@@ -30,7 +30,7 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
-      className={`h-11 w-11 rounded-full transition-all bg-primary/5 border duration-300 hover:bg-primary/10 hover:shadow-lg focus:ring-2 flex items-center justify-center cursor-pointer ${
+      className={`h-11 w-11 rounded-full transition-all bg-primary/5 border border-primary/20 duration-300 hover:bg-primary/10 hover:shadow-lg focus:ring-2 flex items-center justify-center cursor-pointer ${
         isToggling ? "scale-90" : "hover:scale-110"
       }`}
       onClick={handleToggle}

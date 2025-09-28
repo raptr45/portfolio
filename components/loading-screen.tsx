@@ -2,10 +2,22 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useLoadingContext } from "./loading-context";
 
 export function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(true);
+  const { isInitialLoading, setInitialLoading } = useLoadingContext();
   const [progress, setProgress] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    // Hide the CSS loading screen and mark body as JS loaded
+    document.body.classList.add("js-loaded");
+    const cssLoadingScreen = document.getElementById("initial-loading-screen");
+    if (cssLoadingScreen) {
+      cssLoadingScreen.style.display = "none";
+    }
+  }, []);
 
   useEffect(() => {
     let progressTimer: NodeJS.Timeout | null = null;
@@ -30,25 +42,29 @@ export function LoadingScreen() {
       if (progressTimer) clearInterval(progressTimer);
 
       setProgress(100);
-      setTimeout(() => setIsLoading(false), 200);
+      // Quick exit - just enough time for progress bar to reach 100%
+      setTimeout(() => setInitialLoading(false), 100);
     };
 
-    // Multiple completion triggers
+    // Multiple completion triggers - immediate response
     const handleDOMContentLoaded = () => completeLoading();
     const handleLoad = () => completeLoading();
 
-    // Check current state
+    // Check current state - respond immediately
     if (document.readyState === "complete") {
-      setTimeout(completeLoading, 300); // Brief delay to show animation
+      // Page already loaded - hide quickly
+      setTimeout(completeLoading, 100);
     } else if (document.readyState === "interactive") {
-      setTimeout(completeLoading, 600);
+      // DOM ready - hide quickly
+      setTimeout(completeLoading, 100);
     } else {
+      // Still loading - wait for events
       document.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
       window.addEventListener("load", handleLoad);
     }
 
-    // Maximum timeout - never longer than 1 second
-    const maxTimeout = setTimeout(completeLoading, 1000);
+    // Safety net - maximum 800ms (reduced from 1000ms)
+    const maxTimeout = setTimeout(completeLoading, 600);
 
     return () => {
       if (progressTimer) clearInterval(progressTimer);
@@ -58,9 +74,12 @@ export function LoadingScreen() {
     };
   }, []);
 
+  // Don't render anything until mounted to prevent hydration issues
+  if (!mounted) return null;
+
   return (
     <AnimatePresence mode="wait">
-      {isLoading && (
+      {isInitialLoading && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -75,11 +94,11 @@ export function LoadingScreen() {
               transition={{ duration: 0.5 }}
               className="flex items-center justify-center gap-2"
             >
-              <div className="relative w-16 h-12 flex items-center">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
-                  <span className="text-white font-bold text-2xl">A</span>
+              <div className="relative w-26 h-16 flex items-center">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
+                  <span className="text-white font-bold text-4xl">A</span>
                 </div>
-                <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent pointer-events-none">
+                <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-4xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent pointer-events-none">
                   bid
                 </span>
               </div>
