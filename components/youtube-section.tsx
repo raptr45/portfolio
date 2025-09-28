@@ -191,10 +191,20 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                           <TooltipTrigger asChild>
                             <motion.div
                               whileHover={{ scale: 1.1 }}
-                              whileTap={{ scale: 0.95 }}
-                              className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-full p-4 shadow-2xl shadow-red-500/50 backdrop-blur-sm border border-red-400/30 cursor-pointer"
+                              whileTap={{ scale: 1 }}
                             >
-                              <Play className="h-8 w-8" fill="currentColor" />
+                              <Button
+                                size="icon"
+                                variant="secondary"
+                                aria-label="Watch on YouTube"
+                                className="rounded-full p-3 bg-red-500 hover:bg-red-600 text-white shadow-2xl shadow-red-500/50 backdrop-blur-sm border border-red-400/30"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  openVideo(videoUrl);
+                                }}
+                              >
+                                <Play className="h-5 w-5" fill="currentColor" />
+                              </Button>
                             </motion.div>
                           </TooltipTrigger>
                           <TooltipContent>
@@ -206,7 +216,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                           <TooltipTrigger asChild>
                             <motion.div
                               whileHover={{ scale: 1.1 }}
-                              whileTap={{ scale: 0.95 }}
+                              whileTap={{ scale: 1 }}
                             >
                               <Button
                                 size="icon"
@@ -219,7 +229,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                                   )
                                 }
                                 aria-label="Copy video link"
-                                className="rounded-full p-3 bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30 hover:border-white/50 text-white"
+                                className="rounded-full p-3 bg-slate-500 hover:bg-slate-600 text-white shadow-2xl shadow-slate-500/50 backdrop-blur-sm border border-slate-400/30"
                               >
                                 {copiedId === resourceId.videoId ? (
                                   <Check className="h-5 w-5" />
