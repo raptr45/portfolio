@@ -369,7 +369,7 @@ export function HeroSection() {
                 variant="ghost"
                 size="icon"
                 onClick={() => scrollToSection("about")}
-                className="w-16 h-16 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
+                className="w-16 h-16 cursor-pointer rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
                 aria-label="Scroll to about section"
               >
                 <ArrowDown className="h-8 w-8 group-hover:scale-110 transition-transform duration-300" />

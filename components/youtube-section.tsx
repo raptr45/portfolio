@@ -135,7 +135,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
               variant={filter === option.id ? "default" : "ghost"}
               size="lg"
               onClick={() => setFilter(option.id)}
-              className={`px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border ${
+              className={`px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border cursor-pointer ${
                 filter === option.id
                   ? "bg-red-500 hover:bg-red-600 text-white border-red-400 shadow-lg shadow-red-500/25"
                   : "bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40"
