@@ -214,7 +214,15 @@ export function HeroSection() {
           >
             Hi, I&apos;m{" "}
             <span className="relative">
-              <span className="underline decoration-wavy decoration-4 decoration-primary/80">
+              <span
+                className="underline decoration-wavy decoration-4 decoration-primary/80 bg-gradient-to-r from-pink-500 via-primary to-cyan-400 bg-clip-text"
+                style={{
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
                 Abid Al Wassie
               </span>
               <motion.div
