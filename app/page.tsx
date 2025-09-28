@@ -160,11 +160,22 @@ async function getYouTubeData(): Promise<YouTubeData> {
       })
     );
 
-    // Create flat list of all videos for backwards compatibility
-    const allVideos = playlistsWithVideos.flatMap(
-      (playlist) => playlist.videos
-    );
+    // Create deduplicated flat list of all videos using Map for O(n) performance
+    // This prevents the same video from appearing multiple times in "All Videos" view
+    const videoMap = new Map<string, PlaylistItem>();
 
+    playlistsWithVideos.forEach((playlist) => {
+      playlist.videos.forEach((video: PlaylistItem) => {
+        const videoId = video.snippet.resourceId?.videoId;
+        // Only add video if it has a valid ID and isn't already in our map
+        if (videoId && !videoMap.has(videoId)) {
+          videoMap.set(videoId, video);
+        }
+      });
+    });
+
+    // Convert Map back to array - maintains insertion order for consistent display
+    const allVideos = Array.from(videoMap.values());
     return {
       playlists: playlistsWithVideos,
       items: allVideos,
