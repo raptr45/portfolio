@@ -201,7 +201,7 @@ export function HeroSection() {
               variant="secondary"
               className="px-8 py-4 text-lg tracking-widest shadow-2xl bg-white/10 dark:bg-white/10 backdrop-blur-sm text-gray-800 dark:text-white border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/20 dark:hover:bg-white/20 transition-all duration-300"
             >
-              CREATIVE FULL STACK DEVELOPER
+              FULL STACK DEVELOPER
             </Badge>
           </motion.div>
 

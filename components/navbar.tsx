@@ -17,9 +17,9 @@ import {
   BoltIcon,
   BookOpenIcon,
   BriefcaseIcon,
-  Cog6ToothIcon,
   EnvelopeIcon,
   PlayIcon,
+  WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
 
 // Heroicons imports - solid versions
@@ -27,9 +27,9 @@ import {
   BoltIcon as BoltSolidIcon,
   BookOpenIcon as BookOpenSolidIcon,
   BriefcaseIcon as BriefcaseSolidIcon,
-  Cog6ToothIcon as Cog6ToothSolidIcon,
   EnvelopeIcon as EnvelopeSolidIcon,
   PlayIcon as PlaySolidIcon,
+  WrenchScrewdriverIcon as WrenchScrewdriverSolidIcon,
 } from "@heroicons/react/24/solid";
 
 const navItems = [
@@ -60,8 +60,8 @@ const navItems = [
   {
     name: "Services",
     href: "#services",
-    icon: Cog6ToothIcon,
-    activeIcon: Cog6ToothSolidIcon,
+    icon: WrenchScrewdriverIcon,
+    activeIcon: WrenchScrewdriverSolidIcon,
   },
   {
     name: "Hire me",
@@ -169,7 +169,7 @@ export function Navbar() {
                     "text-lg font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 cursor-pointer border border-transparent min-h-[48px] hover:shadow-md",
                     isActive
                       ? "text-primary bg-primary/15 shadow-md border-primary/30 hover:bg-primary/20"
-                      : "text-foreground hover:text-primary hover:bg-primary/10 border-primary/10 hover:border-primary/30 bg-primary/5"
+                      : "text-foreground hover:text-primary hover:bg-primary/10 border-primary/20 hover:border-primary/35 bg-primary/5"
                   )}
                   onClick={() => scrollToSection(item.href)}
                   style={{ transform: "translateZ(0)" }}
