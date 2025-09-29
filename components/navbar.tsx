@@ -234,7 +234,7 @@ export function Navbar() {
                   className={cn(
                     "text-lg text-cyan-600 hover:text-cyan-600 font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 cursor-pointer border border-transparent min-h-[48px] hover:shadow-md",
                     isActive
-                      ? "text-cyan-600 dark:text-primary bg-cyan-600/15 dark:bg-primary/15 shadow-md border-primary/3 hover:bg-cyan-600/15 dark:hover:bg-primary/15"
+                      ? "text-cyan-600 dark:text-primary bg-cyan-200/15 dark:bg-primary/15 shadow-md border-primary/3 hover:bg-cyan-600/15 dark:hover:bg-primary/15"
                       : "text-cyan-600 dark:text-foreground hover:bg-cyan-500/10 dark:hover:bg-primary/10 border-cyan-800/20 dark:border-primary/20 hover:border-cyan-600/35 dark:hover:border-primary/35 bg-cyan-600/5"
                   )}
                   onClick={() => scrollToSection(item.href)}
