@@ -6,7 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Github, Mail, X, Youtube } from "lucide-react";
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -18,9 +25,9 @@ interface ContactFormData {
 
 const socialLinks = [
   {
-    href: "https://www.x.com/onemandev_io",
-    icon: X,
-    label: "Twitter",
+    href: "https://github.com/AbidAlWassie",
+    icon: Github,
+    label: "GitHub",
   },
   {
     href: "https://www.youtube.com/channel/UCYVf_0t2qsjyHILRsLatlHg",
@@ -28,9 +35,14 @@ const socialLinks = [
     label: "YouTube",
   },
   {
-    href: "https://github.com/AbidAlWassie",
-    icon: Github,
-    label: "GitHub",
+    href: "https://linkedin.com/in/abidalwassie",
+    icon: Linkedin,
+    label: "Linkedin",
+  },
+  {
+    href: "https://www.x.com/onemandev_io",
+    icon: Twitter,
+    label: "Twitter",
   },
 ] as const;
 

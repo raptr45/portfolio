@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Github, Twitter, Youtube } from "lucide-react";
+import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
 
 const socialLinks = [
   {
-    href: "https://www.twitter.com/onemandev_io",
-    icon: Twitter,
-    label: "Twitter",
+    href: "https://github.com/AbidAlWassie",
+    icon: Github,
+    label: "GitHub",
   },
   {
     href: "https://www.youtube.com/channel/UCYVf_0t2qsjyHILRsLatlHg",
@@ -13,9 +13,14 @@ const socialLinks = [
     label: "YouTube",
   },
   {
-    href: "https://github.com/AbidAlWassie",
-    icon: Github,
-    label: "GitHub",
+    href: "https://linkedin.com/in/abidalwassie",
+    icon: Linkedin,
+    label: "Linkedin",
+  },
+  {
+    href: "https://www.twitter.com/onemandev_io",
+    icon: Twitter,
+    label: "Twitter",
   },
 ] as const;
 
