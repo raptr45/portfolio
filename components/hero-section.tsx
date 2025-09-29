@@ -190,6 +190,50 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto"
         >
+          {/* Greeting */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="my-8"
+          >
+            <span className="text-2xl md:text-5xl font-semibold text-gray-700 dark:text-white/80">
+              👋 Hi there, I&apos;m
+            </span>
+          </motion.div>
+
+          {/* Main Name */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-4xl md:text-6xl lg:text-6xl font-black mb-6 text-balance leading-none"
+          >
+            <span className="relative inline-block">
+              <span
+                className="bg-gradient-to-r from-indigo-500 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
+                style={{
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Abid Al Wassie
+              </span>
+              <motion.div
+                className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-3xl blur-2xl -z-10"
+                animate={{
+                  opacity: [0.2, 0.4, 0.2],
+                  scale: [0.95, 1.02, 0.95],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </span>
+          </motion.h1>
+
           {/* Enhanced Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -222,50 +266,6 @@ export function HeroSection() {
               </Badge>
             </div>
           </motion.div>
-
-          {/* Greeting */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="mb-6"
-          >
-            <span className="text-2xl md:text-5xl font-medium text-gray-700 dark:text-white/80">
-              👋 Hi there, I&apos;m
-            </span>
-          </motion.div>
-
-          {/* Main Name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-balance leading-none"
-          >
-            <span className="relative inline-block">
-              <span
-                className="bg-gradient-to-r from-indigo-500 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
-                style={{
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Abid Al Wassie
-              </span>
-              <motion.div
-                className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-3xl blur-2xl -z-10"
-                animate={{
-                  opacity: [0.2, 0.4, 0.2],
-                  scale: [0.95, 1.02, 0.95],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            </span>
-          </motion.h1>
 
           {/* Experience Badge */}
           {/* <motion.div
