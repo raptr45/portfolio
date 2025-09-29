@@ -182,8 +182,8 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-background/95 backdrop-blur-xl border-b-2 border-primary/20 shadow-xl"
-          : "bg-background/10 backdrop-blur-sm"
+          ? "bg-gradient-to-r from-primary/20 to-blue-600/20 backdrop-blur-xl backdrop-saturate-150 border-b border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+          : "bg-gradient-to-r from-primary/10 to-blue-600/10 backdrop-blur-md backdrop-saturate-125 border-b border-primary/15 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
       )}
     >
       <div className="container mx-auto px-6">
