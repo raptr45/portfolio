@@ -15,29 +15,29 @@ import { ThemeToggle } from "./theme-toggle";
 // Heroicons imports - outline versions
 import {
   BoltIcon,
-  BookOpenIcon,
   BriefcaseIcon,
   EnvelopeIcon,
   PlayIcon,
+  SparklesIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
 
 // Heroicons imports - solid versions
 import {
   BoltIcon as BoltSolidIcon,
-  BookOpenIcon as BookOpenSolidIcon,
   BriefcaseIcon as BriefcaseSolidIcon,
   EnvelopeIcon as EnvelopeSolidIcon,
   PlayIcon as PlaySolidIcon,
+  SparklesIcon as SparklesSolidIcon,
   WrenchScrewdriverIcon as WrenchScrewdriverSolidIcon,
 } from "@heroicons/react/24/solid";
 
 const navItems = [
   {
-    name: "About",
-    href: "#about",
-    icon: BookOpenIcon,
-    activeIcon: BookOpenSolidIcon,
+    name: "Experience",
+    href: "#experience",
+    icon: SparklesIcon,
+    activeIcon: SparklesSolidIcon,
   },
   {
     name: "Work",
