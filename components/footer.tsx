@@ -30,16 +30,13 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center space-y-8">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="relative">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">
-                  A
-                </span>
-              </div>
-              <div className="absolute -right-1 top-0 w-5 h-5 bg-primary/20 rounded-full"></div>
+          <div className="relative w-26 h-16 flex items-center">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
+              <span className="text-white font-bold text-4xl">A</span>
             </div>
-            <span className="text-xl font-semibold">bid</span>
+            <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-4xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent pointer-events-none">
+              bid
+            </span>
           </div>
 
           {/* Copyright */}
