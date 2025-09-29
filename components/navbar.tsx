@@ -182,7 +182,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-gradient-to-r from-primary/20 to-blue-600/20 backdrop-blur-xl backdrop-saturate-150 border-b border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+          ? "bg-gradient-to-r dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30  backdrop-blur-xl backdrop-saturate-150 border-b border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
           : "bg-gradient-to-r from-primary/10 to-blue-600/10 backdrop-blur-md backdrop-saturate-125 border-b border-primary/15 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
       )}
     >
@@ -232,10 +232,10 @@ export function Navbar() {
                   variant="ghost"
                   size="lg"
                   className={cn(
-                    "text-lg font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 cursor-pointer border border-transparent min-h-[48px] hover:shadow-md",
+                    "text-lg text-cyan-600 hover:text-cyan-600 font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 cursor-pointer border border-transparent min-h-[48px] hover:shadow-md",
                     isActive
-                      ? "text-primary bg-primary/15 shadow-md border-primary/30 hover:bg-primary/20"
-                      : "text-foreground hover:text-primary hover:bg-primary/10 border-primary/20 hover:border-primary/35 bg-primary/5"
+                      ? "text-cyan-600 dark:text-primary bg-cyan-600/15 dark:bg-primary/15 shadow-md border-primary/3 hover:bg-cyan-600/15 dark:hover:bg-primary/15"
+                      : "text-cyan-600 dark:text-foreground hover:bg-cyan-500/10 dark:hover:bg-primary/10 border-cyan-800/20 dark:border-primary/20 hover:border-cyan-600/35 dark:hover:border-primary/35 bg-cyan-600/5"
                   )}
                   onClick={() => scrollToSection(item.href)}
                   style={{ transform: "translateZ(0)" }}
@@ -251,12 +251,14 @@ export function Navbar() {
                   <IconComponent
                     className={cn(
                       "h-5 w-5 transition-colors duration-200 flex-shrink-0",
-                      isActive ? "text-primary" : "text-current"
+                      isActive
+                        ? "text-cyan-700 dark:text-primary"
+                        : "text-current"
                     )}
                   />
                   <span className="whitespace-nowrap">{item.name}</span>
                   {isActive && (
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-cyan-700 dark:bg-primary rounded-full" />
                   )}
                 </Button>
               );

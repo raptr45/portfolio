@@ -321,7 +321,7 @@ export function HeroSection() {
               onClick={() => scrollToSection("work")}
               className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold text-white border-0 cursor-pointer"
             >
-              🎨 View My Work
+              🚀 View My Work
             </Button>
             <Button
               variant="outline"
