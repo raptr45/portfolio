@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
 
 // Heroicons imports - outline versions
@@ -74,6 +74,11 @@ const navItems = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Track animation frame and timeouts to ensure proper cleanup between clicks
+  const closeRafRef = useRef<number | null>(null);
+  const closeDelayTimeoutRef = useRef<number | null>(null);
+  const closeFallbackTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,10 +109,71 @@ export function Navbar() {
     };
   }, []);
 
-  const scrollToSection = (href: string) => {
+  // Ensure we cancel any pending checks/timeouts (called before starting a new one)
+  const cancelPendingClosers = () => {
+    if (closeRafRef.current !== null) {
+      cancelAnimationFrame(closeRafRef.current);
+      closeRafRef.current = null;
+    }
+    if (closeDelayTimeoutRef.current !== null) {
+      clearTimeout(closeDelayTimeoutRef.current);
+      closeDelayTimeoutRef.current = null;
+    }
+    if (closeFallbackTimeoutRef.current !== null) {
+      clearTimeout(closeFallbackTimeoutRef.current);
+      closeFallbackTimeoutRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    // Cleanup on unmount
+    return () => cancelPendingClosers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const scrollToSection = (href: string, closeMobileMenu = false) => {
     const element = document.getElementById(href.slice(1));
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Cancel any previous watchers to avoid races
+      cancelPendingClosers();
+
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      if (closeMobileMenu) {
+        const anchorY = 100; // same probe line used in activeSection detection
+        let lastScrollY = window.scrollY;
+
+        const checkArrival = () => {
+          const rect = element.getBoundingClientRect();
+          const reached = rect.top <= anchorY && rect.bottom >= anchorY;
+          const near = Math.abs(rect.top - anchorY) < 16;
+          const scrolling = Math.abs(window.scrollY - lastScrollY) > 0.5;
+          lastScrollY = window.scrollY;
+
+          if (reached || (!scrolling && near)) {
+            // slight delay before closing to feel natural
+            closeDelayTimeoutRef.current = window.setTimeout(() => {
+              setIsMobileMenuOpen(false);
+            }, 150);
+            closeRafRef.current = null;
+            // clear fallback since we're done
+            if (closeFallbackTimeoutRef.current !== null) {
+              clearTimeout(closeFallbackTimeoutRef.current);
+              closeFallbackTimeoutRef.current = null;
+            }
+            return;
+          }
+          closeRafRef.current = requestAnimationFrame(checkArrival);
+        };
+
+        // kick off the monitor shortly after scroll starts
+        closeRafRef.current = requestAnimationFrame(checkArrival);
+
+        // final safety: force-close after 1.8s to avoid getting stuck
+        closeFallbackTimeoutRef.current = window.setTimeout(() => {
+          setIsMobileMenuOpen(false);
+        }, 1800);
+      }
     }
   };
 
@@ -202,19 +268,20 @@ export function Navbar() {
             <ThemeToggle />
 
             {/* Mobile Menu */}
-            <Sheet>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild className="md:hidden">
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="cursor-pointer border border-primary/10 hover:border-primary/30 bg-primary/5 hover:bg-primary/10 hover:shadow-md transition-all duration-200"
+                  className="cursor-pointer border border-primary/10 hover:border-primary/30 bg-primary/5 hover:bg-primary/10 hover:shadow-md transition-all duration-200 p-3 h-12 w-12"
                 >
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-64">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                <div className="flex flex-col space-y-4 mt-8">
+
+                <div className="flex flex-col space-y-6 mt-18 mx-4">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.slice(1);
                     const IconComponent = isActive
@@ -231,7 +298,7 @@ export function Navbar() {
                             ? "text-primary bg-primary/15 border-primary/20"
                             : "text-muted-foreground hover:text-foreground hover:bg-primary/10 border-primary/5 hover:border-primary/20"
                         )}
-                        onClick={() => scrollToSection(item.href)}
+                        onClick={() => scrollToSection(item.href, true)}
                       >
                         <IconComponent
                           className={cn(
