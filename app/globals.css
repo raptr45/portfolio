@@ -476,6 +476,11 @@
     }
   }
 
+  /* Custom background size utility for animated gradient text */
+  .bg-300\% {
+    background-size: 300% 100%;
+  }
+
   /* Optimize animations for better performance */
   .motion-safe {
     @media (prefers-reduced-motion: reduce) {

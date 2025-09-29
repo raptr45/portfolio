@@ -190,49 +190,76 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto"
         >
-          {/* Badge */}
+          {/* Enhanced Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="mb-8 flex justify-center"
+            className="my-8 flex justify-center"
           >
-            <Badge
-              variant="secondary"
-              className="px-8 py-4 text-lg tracking-widest shadow-2xl bg-white/10 dark:bg-white/10 backdrop-blur-sm text-gray-800 dark:text-white border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/20 dark:hover:bg-white/20 transition-all duration-300"
-            >
-              FULL STACK DEVELOPER
-            </Badge>
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-600 to-purple-600 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition duration-300"></div>
+              <Badge
+                variant="secondary"
+                className="relative px-6 py-4 text-lg tracking-widest shadow-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-gray-800 dark:text-white border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 font-bold"
+              >
+                <motion.span
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent bg-300% font-extrabold"
+                  style={{
+                    backgroundSize: "300% 100%",
+                  }}
+                >
+                  ⚡ FULL STACK DEVELOPER ⚡
+                </motion.span>
+              </Badge>
+            </div>
           </motion.div>
 
-          {/* Main heading */}
+          {/* Greeting */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mb-6"
+          >
+            <span className="text-2xl md:text-5xl font-medium text-gray-700 dark:text-white/80">
+              👋 Hi there, I&apos;m
+            </span>
+          </motion.div>
+
+          {/* Main Name */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 text-balance bg-gradient-to-r from-pink-500 via-primary to-cyan-400 bg-clip-text text-transparent drop-shadow-2xl"
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-balance leading-none"
           >
-            Hi, I&apos;m{" "}
-            <span className="relative">
+            <span className="relative inline-block">
               <span
-                className="underline decoration-wavy decoration-4 decoration-primary/80 bg-gradient-to-r from-pink-500 via-primary to-cyan-400 bg-clip-text"
+                className="bg-gradient-to-r from-indigo-500 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
                 style={{
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
                 }}
               >
                 Abid Al Wassie
               </span>
               <motion.div
-                className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-2xl blur-xl"
+                className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-3xl blur-2xl -z-10"
                 animate={{
-                  opacity: [0.3, 0.6, 0.3],
-                  scale: [1, 1.05, 1],
+                  opacity: [0.2, 0.4, 0.2],
+                  scale: [0.95, 1.02, 0.95],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -240,45 +267,69 @@ export function HeroSection() {
             </span>
           </motion.h1>
 
-          {/* Description */}
-          <motion.p
+          {/* Experience Badge */}
+          {/* <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="mb-8 flex justify-center"
+          >
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 rounded-2xl blur-lg opacity-60 group-hover:opacity-90 transition duration-300"></div>
+              <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm px-8 py-4 rounded-2xl border-2 border-emerald-500/40 shadow-2xl">
+                <span className="text-lg font-bold text-emerald-700 dark:text-emerald-300 tracking-wide flex items-center gap-2">
+                  🏆 3+ Years Experience
+                </span>
+              </div>
+            </div>
+          </motion.div> */}
+
+          {/* Role Description */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-2xl md:text-3xl text-gray-700 dark:text-white/90 mb-12 max-w-4xl mx-auto font-medium leading-relaxed"
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="mb-12"
           >
-            I build{" "}
-            <span className="text-primary font-bold bg-primary/10 px-3 py-1 rounded-lg">
-              modern web apps
-            </span>{" "}
-            with TypeScript, React, Next.js, and creative technologies.
-            <br />
-            <span className="text-pink-600 dark:text-pink-300 font-semibold">
-              Let&apos;s create something remarkable together.
-            </span>
-          </motion.p>
+            <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium">
+              <div className="mt-4">
+                I build{" "}
+                <span className="relative inline-block">
+                  <span className="text-primary font-bold bg-primary/10 px-3 py-1 rounded-lg">
+                    scaleable web apps
+                  </span>
+                </span>{" "}
+                with TypeScript, React, Next.js, Node.js, and other
+                technologies.
+              </div>
+              <br />
+              <span className="text-3xl font-semibold bg-gradient-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                💫 Let&apos;s build something amazing together!
+              </span>
+            </div>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-8 justify-center mb-16"
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-8 justify-center mb-24"
           >
             <Button
               size="lg"
               onClick={() => scrollToSection("work")}
-              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold border-2 border-gray-300/50 dark:border-white/20"
+              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold text-white border-0 cursor-pointer"
             >
-              🚀 View My Work
+              🎨 View My Work
             </Button>
             <Button
               variant="outline"
               size="lg"
               onClick={() => scrollToSection("contact")}
-              className="text-2xl px-12 py-6 rounded-2xl border-2 border-gray-400/40 dark:border-white/30 bg-white/20 dark:bg-white/5 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white/30 dark:hover:bg-white/10 hover:border-gray-500/60 dark:hover:border-white/50 hover:scale-105 transition-all duration-300 font-bold"
+              className="text-2xl px-12 py-6 rounded-2xl border-2 border-gray-400/40 dark:border-white/30 bg-white/20 dark:bg-white/5 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white/30 dark:hover:bg-white/10 hover:border-gray-500/60 dark:hover:border-white/50 hover:scale-105 transition-all duration-300 font-bold cursor-pointer"
             >
-              ✉️ Get In Touch
+              💬 Let&apos;s Connect
             </Button>
           </motion.div>
 
@@ -286,18 +337,20 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="flex justify-center gap-8 mb-20"
+            transition={{ delay: 1.1, duration: 0.8 }}
+            className="flex justify-center gap-6 mb-20"
           >
             <motion.div
-              whileHover={{ scale: 1.1, y: -5 }}
+              whileHover={{ scale: 1.15, y: -8 }}
               whileTap={{ scale: 0.95 }}
+              className="relative group"
             >
+              <div className="absolute -inset-2 bg-accent-foreground/50 rounded-2xl blur-lg opacity-0 group-hover:opacity-70 transition duration-300"></div>
               <Button
                 variant="ghost"
                 size="icon"
                 asChild
-                className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-gray-700 dark:text-white"
+                className="relative w-16 h-16 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white hover:border-gray-600 dark:hover:bg-gray-800 dark:hover:border-white/40 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
               >
                 <a
                   href="https://github.com/AbidAlWassie"
@@ -305,20 +358,22 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   aria-label="GitHub"
                 >
-                  <Github className="h-8 w-8" />
+                  <Github className="h-8 w-8 group-hover:scale-110 transition-transform duration-200" />
                 </a>
               </Button>
             </motion.div>
 
             <motion.div
-              whileHover={{ scale: 1.1, y: -5 }}
+              whileHover={{ scale: 1.15, y: -8 }}
               whileTap={{ scale: 0.95 }}
+              className="relative group"
             >
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-blue-700 rounded-2xl blur-lg opacity-0 group-hover:opacity-70 transition duration-300"></div>
               <Button
                 variant="ghost"
                 size="icon"
                 asChild
-                className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 text-gray-700 dark:text-white"
+                className="relative w-16 h-16 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-blue-50 hover:border-blue-500 dark:hover:bg-blue-950 dark:hover:border-blue-400 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
               >
                 <a
                   href="https://linkedin.com/in/abidalwassie"
@@ -326,23 +381,25 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="h-8 w-8" />
+                  <Linkedin className="h-8 w-8 group-hover:scale-110 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-all duration-200" />
                 </a>
               </Button>
             </motion.div>
 
             <motion.div
-              whileHover={{ scale: 1.1, y: -5 }}
+              whileHover={{ scale: 1.15, y: -8 }}
               whileTap={{ scale: 0.95 }}
+              className="relative group"
             >
+              <div className="absolute -inset-2 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-70 transition duration-300"></div>
               <Button
                 variant="ghost"
                 size="icon"
                 asChild
-                className="w-16 h-16 rounded-2xl bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300 text-gray-700 dark:text-white"
+                className="relative w-16 h-16 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-red-50 hover:border-red-500 dark:hover:bg-red-950 dark:hover:border-red-400 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
               >
                 <a href="mailto:abidalwassie@outlook.com" aria-label="Email">
-                  <Mail className="h-8 w-8" />
+                  <Mail className="h-8 w-8 group-hover:scale-110 group-hover:text-red-600 dark:group-hover:text-red-400 transition-all duration-200" />
                 </a>
               </Button>
             </motion.div>
@@ -352,27 +409,40 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.8 }}
+            transition={{ delay: 1.3, duration: 0.8 }}
             className="flex justify-center"
           >
             <motion.div
               animate={{
-                y: [0, 10, 0],
+                y: [0, 12, 0],
               }}
               transition={{
-                duration: 2,
+                duration: 2.5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
+              className="relative group"
             >
+              <div className="absolute -inset-3 bg-gradient-to-b from-primary/30 to-blue-600/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition duration-300"></div>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => scrollToSection("about")}
-                className="w-16 h-16 cursor-pointer rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-500/50 dark:hover:border-white/40 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
+                className="relative w-16 h-16 cursor-pointer rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white hover:border-primary dark:hover:bg-gray-800 dark:hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-gray-700 dark:text-white group"
                 aria-label="Scroll to about section"
               >
-                <ArrowDown className="h-8 w-8 group-hover:scale-110 transition-transform duration-300" />
+                <motion.div
+                  animate={{
+                    y: [0, 4, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <ArrowDown className="h-8 w-8 group-hover:scale-110 group-hover:text-primary transition-all duration-300" />
+                </motion.div>
               </Button>
             </motion.div>
           </motion.div>
