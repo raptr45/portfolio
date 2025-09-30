@@ -82,7 +82,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
   return (
     <section
       id="youtube"
-      className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
@@ -101,20 +101,20 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
           >
             <Badge
               variant="secondary"
-              className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 text-white backdrop-blur-sm"
+              className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 dark:text-white backdrop-blur-sm"
             >
               🎥 YouTube
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent">
               Latest Videos
             </h2>
-            <p className="text-gray-50/80 max-w-3xl mx-auto text-2xl leading-relaxed">
+            <p className="dark:text-gray-50/80 max-w-3xl mx-auto text-2xl leading-relaxed">
               Watch my{" "}
-              <span className="bg-gradient-to-r from-red-300 to-pink-300 bg-clip-text text-transparent font-bold">
+              <span className="bg-gradient-to-r from-red-500 to-pink-600 dark:from-red-300 dark:to-pink-300 bg-clip-text text-transparent font-bold">
                 tutorials and development content
               </span>{" "}
               where I share insights about{" "}
-              <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent font-bold">
+              <span className="bg-gradient-to-r from-cyan-500 to-blue-600  dark:from-cyan-300 dark:to-blue-300 bg-clip-text text-transparent font-bold">
                 modern web development
               </span>
             </p>
@@ -138,7 +138,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
               className={`px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border cursor-pointer ${
                 filter === option.id
                   ? "bg-red-500 hover:bg-red-600 text-white border-red-400 shadow-lg shadow-red-500/25"
-                  : "bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-white/40"
+                  : "bg-primary-foreground dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20 dark:hover:border-white/40"
               }`}
             >
               {option.label}
@@ -251,7 +251,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
                     </div>
 
                     <CardContent>
-                      <h3 className="font-semibold text-base line-clamp-2 leading-tight text-white group-hover:text-red-300 transition-colors duration-300">
+                      <h3 className="font-semibold text-base line-clamp-2 leading-tight text-gray-800 dark:text-white dark:group-hover:text-blue-50 transition-colors duration-300">
                         {title}
                       </h3>
                     </CardContent>
