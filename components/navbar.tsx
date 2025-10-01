@@ -298,17 +298,19 @@ export function Navbar() {
                         key={item.name}
                         variant="ghost"
                         className={cn(
-                          "justify-start text-left flex items-center gap-3 px-4 py-3 cursor-pointer transition-all duration-200 min-h-[48px] border border-transparent hover:shadow-md",
+                          "justify-start text-left flex items-center gap-3 px-4 py-3 cursor-pointer transition-all duration-200 min-h-[48px] border border-transparent hover:shadow-md font-semibold",
                           isActive
-                            ? "text-primary bg-primary/15 border-primary/20"
-                            : "text-muted-foreground hover:text-foreground hover:bg-primary/10 border-primary/5 hover:border-primary/20"
+                            ? "text-cyan-600 dark:text-primary bg-cyan-200/15 dark:bg-primary/15 border-primary/20 shadow-md"
+                            : "text-cyan-600 dark:text-foreground hover:text-cyan-600 dark:hover:text-primary hover:bg-cyan-500/10 dark:hover:bg-primary/10 border-primary/5 hover:border-primary/20"
                         )}
                         onClick={() => scrollToSection(item.href, true)}
                       >
                         <IconComponent
                           className={cn(
                             "h-5 w-5 flex-shrink-0",
-                            isActive ? "text-primary" : "text-current"
+                            isActive
+                              ? "text-cyan-700 dark:text-primary"
+                              : "text-current"
                           )}
                         />
                         <span className="whitespace-nowrap">{item.name}</span>
