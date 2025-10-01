@@ -137,7 +137,29 @@ export function Navbar() {
       // Cancel any previous watchers to avoid races
       cancelPendingClosers();
 
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Fast custom smooth scroll
+      const targetPosition = element.offsetTop - 80; // Account for navbar height
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 400; // Much faster duration (400ms instead of default ~1000ms)
+      let start: number | null = null;
+
+      const animation = (currentTime: number) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // Ease-out function for smooth deceleration
+        const ease = 1 - Math.pow(1 - progress, 3);
+
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (progress < 1) {
+          requestAnimationFrame(animation);
+        }
+      };
+
+      requestAnimationFrame(animation);
 
       if (closeMobileMenu) {
         const anchorY = 100; // same probe line used in activeSection detection
