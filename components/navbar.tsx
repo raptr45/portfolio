@@ -282,11 +282,11 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)] [&>button]:bg-red-400/70 [&>button]:hover:bg-red-500/60 [&>button]:outline-white [&>button]:outline-offset-2 [&>button]:outline-2 [&>button]:text-white [&>button]:cursor-pointer [&>button]:rounded-lg"
               >
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
-                <div className="flex flex-col space-y-6 mt-18 mx-4">
+                <div className="flex flex-col space-y-6 mt-22 mx-4">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.href.slice(1);
                     const IconComponent = isActive
