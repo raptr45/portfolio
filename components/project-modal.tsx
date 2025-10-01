@@ -17,7 +17,6 @@ import {
   Clock,
   ExternalLink,
   Github,
-  Tag,
   Users,
 } from "lucide-react";
 import Image from "next/image";
@@ -50,7 +49,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl h-[90vh] flex flex-col overflow-hidden">
+      <DialogContent className="max-w-4xl h-[90vh] flex flex-col overflow-hidden [&>button]:bg-red-500 [&>button]:text-white [&>button]:rounded-md [&>button]:flex [&>button]:justify-center [&>button]:items-center [&>button:hover]:bg-red-600 [&>button]:w-8 [&>button]:h-8 [&>button]:text-3xl">
         <DialogHeader className="flex-shrink-0 pb-4">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1 min-w-0">
@@ -124,11 +123,11 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   <span className="font-medium">{project.team}</span>
                 </div>
               )}
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <Tag className="h-4 w-4 text-muted-foreground" />
                 <span className="text-muted-foreground">Category:</span>
                 <span className="font-medium">{project.category}</span>
-              </div>
+              </div> */}
             </div>
 
             <Separator />
