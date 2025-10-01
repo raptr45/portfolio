@@ -280,7 +280,10 @@ export function Navbar() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-64">
+              <SheetContent
+                side="right"
+                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+              >
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
                 <div className="flex flex-col space-y-6 mt-18 mx-4">
