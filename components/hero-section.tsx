@@ -217,9 +217,9 @@ export function HeroSection() {
               <motion.div
                 whileHover={{ scale: 1.05, rotateY: 5 }}
                 transition={{ duration: 0.3 }}
-                className="w-64 h-80 sm:w-72 sm:h-[360px] md:w-80 md:h-96 lg:w-96 lg:h-[500px] rounded-3xl bg-gradient-to-br from-purple-600 via-purple-500 to-blue-500 p-1 shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+                className="w-64 h-80 sm:w-72 sm:h-[360px] md:w-80 md:h-96 lg:w-96 lg:h-[500px] rounded-3xl bg-gradient-to-br from-indigo-700 via-blue-500 to-sky-600 p-1 shadow-2xl hover:shadow-3xl transition-shadow duration-300"
               >
-                <div className="w-full h-full rounded-3xl overflow-hidden bg-gradient-to-br from-purple-600 via-purple-500 to-blue-500 flex items-end justify-center relative">
+                <div className="w-full h-full rounded-3xl overflow-hidden bg-gradient-to-br from-indigo-700 via-blue-500 to-sky-700 flex items-end justify-center relative">
                   {/* Profile Image */}
                   <div className="relative w-full h-full">
                     {/* Subtle overlay for better contrast */}
@@ -236,7 +236,7 @@ export function HeroSection() {
               </motion.div>
               {/* Floating decorative elements */}
               <motion.div
-                className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 blur-xl opacity-60"
+                className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 blur-xl opacity-60"
                 animate={{
                   y: [0, -15, 0],
                   scale: [1, 1.2, 1],
@@ -249,7 +249,7 @@ export function HeroSection() {
                 }}
               />
               <motion.div
-                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 blur-lg opacity-50"
+                className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-gradient-to-br from-fuchsia-400 to-indigo-500 blur-lg opacity-50"
                 animate={{
                   y: [0, 15, 0],
                   scale: [1, 0.8, 1],
