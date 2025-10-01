@@ -7,15 +7,12 @@ import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const [isToggling, setIsToggling] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
 
   const handleToggle = () => {
-    setIsToggling(true);
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
-    setTimeout(() => setIsToggling(false), 200);
   };
 
   if (!mounted) {
@@ -26,43 +23,28 @@ export function ThemeToggle() {
     );
   }
 
+  const isDark = resolvedTheme === "dark";
+
   return (
     <Button
       variant="ghost"
       size="icon"
-      className={`h-11 w-11 rounded-full transition-all bg-primary/5 border border-primary/20 duration-300 hover:bg-primary/10 hover:shadow-lg focus:ring-2 flex items-center justify-center cursor-pointer ${
-        isToggling ? "scale-90" : "hover:scale-110"
-      }`}
+      className="h-11 w-11 rounded-full bg-primary/5 border border-primary/20 hover:bg-primary/10 transition-colors duration-200 flex items-center justify-center cursor-pointer"
       onClick={handleToggle}
-      aria-label={`Switch to ${
-        resolvedTheme === "dark" ? "light" : "dark"
-      } mode`}
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      <div className="relative h-6 w-6 overflow-hidden flex items-center justify-center">
-        <Sun
-          className={`absolute h-6 w-6 transition-all duration-700 ${
-            resolvedTheme === "dark"
-              ? "rotate-180 scale-0 opacity-0 -translate-y-2"
-              : "rotate-0 scale-100 opacity-100 translate-y-0"
-          } ${
-            isToggling
-              ? "transition-all duration-300 ease-out"
-              : "ease-[cubic-bezier(0.4,0,0.2,1)]"
-          }`}
-          strokeWidth={2.75}
-        />
-        <Moon
-          className={`absolute h-6 w-6 transition-all duration-700 ${
-            resolvedTheme === "dark"
-              ? "rotate-0 scale-100 opacity-100 translate-y-0"
-              : "rotate-180 scale-0 opacity-0 translate-y-2"
-          } ${
-            isToggling
-              ? "transition-all duration-300 ease-out"
-              : "ease-[cubic-bezier(0.4,0,0.2,1)]"
-          }`}
-          strokeWidth={2.75}
-        />
+      <div className="relative h-6 w-6 flex items-center justify-center">
+        {isDark ? (
+          <Moon
+            className="h-6 w-6 transition-opacity duration-200"
+            strokeWidth={2.5}
+          />
+        ) : (
+          <Sun
+            className="h-6 w-6 transition-opacity duration-200"
+            strokeWidth={2.5}
+          />
+        )}
       </div>
     </Button>
   );
