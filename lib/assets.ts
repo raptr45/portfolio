@@ -1,10 +1,7 @@
-// lib/images.ts
 import circle1 from "../assets/circle1.png";
 import circle2 from "../assets/circle2.png";
 import dots from "../assets/dots.png";
-import profile_lg from "../assets/profile_lg.png";
-import profile_md from "../assets/profile_md.png";
-import profile_sm from "../assets/profile_sm.png";
+import profile from "../assets/profile.png";
 import square1 from "../assets/square1.png";
 import square2 from "../assets/square2.png";
 import design from "../assets/svgs/design.svg";
@@ -60,9 +57,7 @@ import tilemap_editor1 from "../assets/work/tilemap_editor1.jpg";
 import topdown_game1 from "../assets/work/topdown_game1.jpg";
 
 const data = {
-  profile_lg,
-  profile_md,
-  profile_sm,
+  profile,
   circle1,
   circle2,
   square1,

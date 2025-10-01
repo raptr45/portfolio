@@ -1,6 +1,6 @@
 import { Cloud, Code, GitBranch, Globe, Server, Wrench } from "lucide-react";
 import type React from "react";
-import techIcons from "./tech-icons";
+import techIcons from "./assets";
 
 import type { StaticImageData } from "next/image";
 
