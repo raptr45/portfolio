@@ -73,6 +73,7 @@ interface SocialLinksProps {
   size?: "sm" | "md" | "lg"; // fallback size override
   showTooltips?: boolean;
   animated?: boolean; // disable framer motion for minimal contexts
+  justify?: "start" | "center" | "end"; // horizontal alignment
 }
 
 export function SocialLinks({
@@ -82,6 +83,7 @@ export function SocialLinks({
   size,
   showTooltips = true,
   animated = true,
+  justify = "center",
 }: SocialLinksProps) {
   // Default include sets per variant
   const defaultSets: Record<typeof variant, SocialKey[]> = {
@@ -120,8 +122,16 @@ export function SocialLinks({
     footer: "gap-4",
   } as const;
 
+  const justifyClass =
+    justify === "start"
+      ? "justify-start"
+      : justify === "end"
+      ? "justify-end"
+      : "justify-center";
+
   const containerClasses = cn(
-    "flex items-center justify-center",
+    "flex items-center",
+    justifyClass,
     gapMap[variant],
     className
   );
@@ -136,9 +146,9 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            whileHover={animated && variant === "hero" ? { y: -5, scale: 1.06 } : undefined}
-            whileTap={animated && variant === "hero" ? { scale: 0.94 } : undefined}
-            transition={animated && variant === "hero" ? { type: "spring", stiffness: 420, damping: 26, mass: 0.6 } : undefined}
+            whileHover={animated && variant === "hero" ? { y: -6 } : undefined}
+            whileTap={undefined}
+            transition={animated && variant === "hero" ? { type: "tween", ease: [0.25, 0.8, 0.3, 1], duration: 0.02 } : undefined}
             className={cn(
               "group relative flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-200 ring-2 ring-transparent focus-visible:outline-none focus-visible:ring-2",
               finalSize,
@@ -149,7 +159,7 @@ export function SocialLinks({
                 : "hover:brightness-110",
             )}
           >
-            <Icon className="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-150 group-hover:scale-115" />
+            <Icon className="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-150" />
           </motion.a>
         );
 

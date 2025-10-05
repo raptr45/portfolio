@@ -100,7 +100,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
             >
               🎥 YouTube
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent">
               Latest Videos
             </h2>
             <p className="dark:text-gray-50/80 max-w-3xl mx-auto text-2xl leading-relaxed">

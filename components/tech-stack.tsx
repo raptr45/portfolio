@@ -60,7 +60,7 @@ export function TechStack() {
             >
               🛠️ Skills
             </Badge>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
               Tech Stack
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">

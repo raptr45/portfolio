@@ -96,6 +96,7 @@ export function ContactSection() {
               <h3 className="text-xl sm:text-2xl font-bold">🌐 Follow me:</h3>
               <SocialLinks
                 variant="contact"
+                justify="start"
                 showTooltips
                 className="pt-1"
               />

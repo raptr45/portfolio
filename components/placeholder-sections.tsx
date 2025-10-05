@@ -63,7 +63,7 @@ export function AboutSection() {
             >
               ✨ Experience
             </Badge>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
               Work Experience
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
@@ -194,7 +194,7 @@ export function WorkSection() {
             >
               🚀 Portfolio
             </Badge>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
               Featured Work
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">
@@ -237,7 +237,9 @@ export function WorkSection() {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/40"
               >
                 View All
-                <span className="text-xl" aria-hidden>→</span>
+                <span className="text-xl" aria-hidden>
+                  →
+                </span>
               </motion.a>
             </div>
           </div>
