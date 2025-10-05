@@ -17,38 +17,20 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
   const [filter, setFilter] = useState("all");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const filterOptions = useMemo(
-    () => [
-      { id: "all", label: "All" },
-      ...(data?.playlists?.map((p) => ({ id: p.id, label: p.snippet.title })) ||
-        []),
-    ],
-    [data?.playlists]
-  );
-
-  if (!data?.playlists?.length && !data?.items?.length) {
-    return (
-      <section id="youtube" className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">YouTube</h2>
-            <p className="text-muted-foreground">
-              No videos available at the moment.
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const filterOptions = useMemo(() => {
+    const base = [{ id: "all", label: "All" }];
+    if (!data?.playlists?.length) return base;
+    return [
+      ...base,
+      ...data.playlists.map((p) => ({ id: p.id, label: p.snippet.title })),
+    ];
+  }, [data?.playlists]);
 
   // Get filtered videos based on selected playlist
-  const filteredVideos = useMemo(
-    () =>
-      filter === "all"
-        ? data.items || []
-        : data.playlists?.find((pl) => pl.id === filter)?.videos || [],
-    [filter, data.items, data.playlists]
-  );
+  const filteredVideos = useMemo(() => {
+    if (filter === "all") return data.items || [];
+    return data.playlists?.find((pl) => pl.id === filter)?.videos || [];
+  }, [filter, data.items, data.playlists]);
 
   const copyToClipboard = useCallback(
     async (e: React.MouseEvent, videoUrl: string, videoId: string) => {
@@ -74,6 +56,21 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
     window.open(videoUrl, "_blank", "noopener,noreferrer");
   }, []);
 
+  if (!data?.playlists?.length && !data?.items?.length) {
+    return (
+      <section id="youtube" className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold mb-4">YouTube</h2>
+            <p className="text-muted-foreground">
+              No videos available at the moment.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="youtube"
@@ -91,7 +88,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
         />
 
         <VideoGrid
-          videos={filteredVideos as any}
+          videos={filteredVideos}
           copiedId={copiedId}
           copyToClipboard={copyToClipboard}
           openVideo={openVideo}

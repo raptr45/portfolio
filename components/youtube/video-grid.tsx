@@ -22,7 +22,7 @@ function VideoGridBase({
       <AnimatePresence mode="popLayout">
         {videos.map((item) => {
           const { id, snippet } = item;
-          const { title, thumbnails, resourceId, publishedAt } = snippet;
+          const { title, thumbnails, resourceId } = snippet;
           const videoUrl = `https://www.youtube.com/watch?v=${resourceId.videoId}`;
           return (
             <VideoCard
@@ -30,7 +30,6 @@ function VideoGridBase({
               title={title}
               thumbnail={thumbnails.high.url || "/placeholder.svg"}
               videoUrl={videoUrl}
-              published={publishedAt}
               videoId={resourceId.videoId}
               openVideo={openVideo}
               copyToClipboard={copyToClipboard}

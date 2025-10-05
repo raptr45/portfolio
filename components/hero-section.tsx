@@ -1,15 +1,14 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { HeroBadge } from "@/components/hero/hero-badge";
+import { HeroCTAs } from "@/components/hero/hero-ctas";
+import { HeroDescription } from "@/components/hero/hero-description";
+import { HeroScrollIndicator } from "@/components/hero/hero-scroll-indicator";
+import { HeroSocialLinks } from "@/components/hero/hero-social-links";
+import { HeroTitle } from "@/components/hero/hero-title";
 import data from "@/lib/assets";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { HeroBadge } from "@/components/hero/hero-badge";
-import { HeroTitle } from "@/components/hero/hero-title";
-import { HeroDescription } from "@/components/hero/hero-description";
-import { HeroCTAs } from "@/components/hero/hero-ctas";
-import { HeroSocialLinks } from "@/components/hero/hero-social-links";
-import { HeroScrollIndicator } from "@/components/hero/hero-scroll-indicator";
 
 export function HeroSection() {
   const scrollToSection = (sectionId: string) => {

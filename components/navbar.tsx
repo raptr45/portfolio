@@ -124,10 +124,8 @@ export function Navbar() {
   };
 
   useEffect(() => {
-    // Cleanup on unmount
     return () => cancelPendingClosers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // dependencies intentionally empty: cleanup only on unmount
 
   const scrollToSection = (href: string, closeMobileMenu = false) => {
     const element = document.getElementById(href.slice(1));

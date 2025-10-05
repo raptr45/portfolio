@@ -1,22 +1,20 @@
 "use client";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
+import { Check, Copy, Play } from "lucide-react";
 import Image from "next/image";
-import { Play, Copy, Check } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
+// Removed unused imports (useState, toast)
 
 interface VideoCardProps {
   title: string;
   thumbnail: string;
   videoUrl: string;
-  published: string;
   videoId: string;
   openVideo: (url: string) => void;
   copyToClipboard: (
@@ -31,7 +29,6 @@ export function VideoCard({
   title,
   thumbnail,
   videoUrl,
-  published,
   videoId,
   openVideo,
   copyToClipboard,
