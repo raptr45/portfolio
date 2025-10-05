@@ -6,14 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  ArrowRight,
-  Github,
-  Linkedin,
-  Mail,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
+import { SocialLinks } from "./social-links";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -23,28 +17,6 @@ interface ContactFormData {
   message: string;
 }
 
-const socialLinks = [
-  {
-    href: "https://github.com/AbidAlWassie",
-    icon: Github,
-    label: "GitHub",
-  },
-  {
-    href: "https://www.youtube.com/channel/UCYVf_0t2qsjyHILRsLatlHg",
-    icon: Youtube,
-    label: "YouTube",
-  },
-  {
-    href: "https://linkedin.com/in/abidalwassie",
-    icon: Linkedin,
-    label: "Linkedin",
-  },
-  {
-    href: "https://www.x.com/onemandev_io",
-    icon: Twitter,
-    label: "Twitter",
-  },
-] as const;
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -122,26 +94,11 @@ export function ContactSection() {
 
             <div className="space-y-4 sm:space-y-6">
               <h3 className="text-xl sm:text-2xl font-bold">🌐 Follow me:</h3>
-              <div className="flex flex-wrap gap-3 sm:gap-4 lg:gap-6">
-                {socialLinks.map(({ href, icon: Icon, label }) => (
-                  <Button
-                    key={label}
-                    variant="outline"
-                    size="lg"
-                    asChild
-                    className="hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-200 border-2 border-primary/20 hover:border-primary !text-foreground dark:!text-foreground flex-shrink-0 min-w-[48px]"
-                  >
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                    >
-                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 !text-foreground dark:!text-foreground" />
-                    </a>
-                  </Button>
-                ))}
-              </div>
+              <SocialLinks
+                variant="contact"
+                showTooltips
+                className="pt-1"
+              />
             </div>
           </div>
 

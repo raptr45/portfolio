@@ -5,9 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { projects, type Project } from "@/lib/projects-data";
 import { motion } from "framer-motion";
-import { Eye } from "lucide-react";
-import Image from "next/image";
 import { useCallback, useMemo, useState } from "react";
+import { ProjectCard } from "@/components/work/project-card";
 
 export function AboutSection() {
   // Experience data rendered in a timeline while preserving the site's design language
@@ -208,7 +207,7 @@ export function WorkSection() {
 
         {/* Featured Projects Section */}
         {featuredProjects.length > 0 && (
-          <div className="mb-16">
+          <div className="mb-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
               {featuredProjects.map((project, index) => (
                 <motion.div
@@ -228,38 +227,18 @@ export function WorkSection() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        )}
-
-        {/* Regular Projects Section */}
-        {regularProjects.length > 0 && (
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
-            >
-              Other Projects
-            </motion.h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-              {regularProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <ProjectCard
-                    project={project}
-                    onViewDetails={handleViewDetails}
-                    size="small"
-                    loading={loadingProject === project.id}
-                  />
-                </motion.div>
-              ))}
+            <div className="mt-14 flex justify-center">
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                href="#work-all" /* Placeholder anchor or external link */
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/40"
+              >
+                View All
+                <span className="text-xl" aria-hidden>→</span>
+              </motion.a>
             </div>
           </div>
         )}
@@ -274,211 +253,4 @@ export function WorkSection() {
   );
 }
 
-interface ProjectCardProps {
-  project: Project;
-  onViewDetails: (project: Project) => void;
-  size?: "small" | "large";
-  featured?: boolean;
-  loading?: boolean;
-}
-
-function ProjectCard({
-  project,
-  onViewDetails,
-  size = "small",
-  featured = false,
-  loading = false,
-}: ProjectCardProps) {
-  const isLarge = size === "large";
-  const [imageLoading, setImageLoading] = useState(true);
-  const [imageError, setImageError] = useState(false);
-
-  const statusConfig = {
-    completed: {
-      color: "text-green-600",
-      bg: "bg-green-100",
-      text: "Completed",
-    },
-    "in-progress": {
-      color: "text-yellow-600",
-      bg: "bg-yellow-100",
-      text: "In Progress",
-    },
-    "coming-soon": {
-      color: "text-blue-600",
-      bg: "bg-blue-100",
-      text: "Coming Soon",
-    },
-  };
-
-  const statusInfo = statusConfig[project.status];
-
-  const handleCardClick = () => {
-    if (!loading) {
-      onViewDetails(project);
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if ((e.key === "Enter" || e.key === " ") && !loading) {
-      e.preventDefault();
-      onViewDetails(project);
-    }
-  };
-
-  return (
-    <Card
-      className="group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden bg-card border-border h-full flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 pt-0 pb-6"
-      onClick={handleCardClick}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      role="button"
-      aria-label={`View details for ${project.title} project`}
-    >
-      <CardContent className="p-0 flex flex-col h-full">
-        {/* Project Image */}
-        <div
-          className={`relative overflow-hidden bg-muted ${
-            isLarge ? "aspect-[16/10]" : "aspect-[4/3]"
-          }`}
-        >
-          {!imageError ? (
-            <Image
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              fill
-              className={`object-cover transition-all duration-500 group-hover:scale-110 ${
-                imageLoading ? "opacity-0" : "opacity-100"
-              }`}
-              sizes={
-                isLarge
-                  ? "(max-width: 768px) 100vw, 50vw"
-                  : "(max-width: 768px) 100vw, 33vw"
-              }
-              onLoad={() => setImageLoading(false)}
-              onError={() => {
-                setImageError(true);
-                setImageLoading(false);
-              }}
-            />
-          ) : (
-            <div className="flex items-center justify-center h-full text-muted-foreground bg-muted">
-              <div className="text-center">
-                <div className="text-2xl mb-1">🖼️</div>
-                <p className="text-xs">No image</p>
-              </div>
-            </div>
-          )}
-
-          {imageLoading && !imageError && (
-            <div className="absolute inset-0 flex items-center justify-center bg-muted">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
-            </div>
-          )}
-
-          {/* Status Badge */}
-          <div className="absolute top-3 left-3">
-            <div
-              className={`px-2 py-1 rounded-full text-xs font-medium ${statusInfo.bg} ${statusInfo.color}`}
-            >
-              {statusInfo.text}
-            </div>
-          </div>
-
-          {/* Featured Badge */}
-          {featured && (
-            <div className="absolute top-3 right-3">
-              <div className="px-2 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground">
-                Featured
-              </div>
-            </div>
-          )}
-
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-300 flex items-center justify-center">
-            <div className="text-white text-center">
-              {loading ? (
-                <div className="flex items-center gap-2">
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
-                  <span>Loading...</span>
-                </div>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <Eye className="h-5 w-5" />
-                  <span>View Details</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Project Info */}
-        <div
-          className={`space-y-3 flex-1 flex flex-col ${
-            isLarge ? "p-6" : "p-4"
-          }`}
-        >
-          <div className="flex-1">
-            <div className="flex items-start justify-between gap-2 mb-2">
-              <h3
-                className={`font-bold text-foreground line-clamp-2 ${
-                  isLarge ? "text-xl" : "text-lg"
-                }`}
-              >
-                {project.title}
-              </h3>
-            </div>
-
-            <p
-              className={`text-muted-foreground leading-relaxed line-clamp-3 mb-3 ${
-                isLarge ? "text-base" : "text-sm"
-              }`}
-            >
-              {project.description}
-            </p>
-
-            {/* Project Meta */}
-            {isLarge && (
-              <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-                {project.duration && (
-                  <span className="flex items-center gap-1">
-                    <span className="w-1 h-1 bg-current rounded-full"></span>
-                    {project.duration}
-                  </span>
-                )}
-                {project.team && (
-                  <span className="flex items-center gap-1">
-                    <span className="w-1 h-1 bg-current rounded-full"></span>
-                    {project.team}
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-1.5">
-            {(isLarge
-              ? project.technologies.slice(0, 6)
-              : project.technologies.slice(0, 4)
-            ).map((tech) => (
-              <Badge
-                key={tech}
-                variant="secondary"
-                className="text-xs px-2 py-1 font-medium"
-              >
-                {tech}
-              </Badge>
-            ))}
-            {((isLarge && project.technologies.length > 6) ||
-              (!isLarge && project.technologies.length > 4)) && (
-              <Badge variant="outline" className="text-xs px-2 py-1">
-                +{project.technologies.length - (isLarge ? 6 : 4)} more
-              </Badge>
-            )}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
+// ProjectCard moved to its own file in components/work/project-card.tsx

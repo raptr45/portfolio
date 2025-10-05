@@ -57,12 +57,12 @@ const navItems = [
     icon: PlayIcon,
     activeIcon: PlaySolidIcon,
   },
-  {
-    name: "Services",
-    href: "#services",
-    icon: WrenchScrewdriverIcon,
-    activeIcon: WrenchScrewdriverSolidIcon,
-  },
+  // {
+  //   name: "Services",
+  //   href: "#services",
+  //   icon: WrenchScrewdriverIcon,
+  //   activeIcon: WrenchScrewdriverSolidIcon,
+  // },
   {
     name: "Hire me",
     href: "#contact",

@@ -43,6 +43,19 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Lucide filled icon utility */
+.lucide-fill path {
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+/* Optional outlined-fill hybrid */
+.lucide-fill-outline path {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  stroke-width: 1.15;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

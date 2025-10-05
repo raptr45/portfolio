@@ -1,28 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
-
-const socialLinks = [
-  {
-    href: "https://github.com/AbidAlWassie",
-    icon: Github,
-    label: "GitHub",
-  },
-  {
-    href: "https://www.youtube.com/channel/UCYVf_0t2qsjyHILRsLatlHg",
-    icon: Youtube,
-    label: "YouTube",
-  },
-  {
-    href: "https://linkedin.com/in/abidalwassie",
-    icon: Linkedin,
-    label: "Linkedin",
-  },
-  {
-    href: "https://www.twitter.com/onemandev_io",
-    icon: Twitter,
-    label: "Twitter",
-  },
-] as const;
+import { SocialLinks } from "./social-links";
 
 export function Footer() {
   return (
@@ -53,26 +29,7 @@ export function Footer() {
           </p>
 
           {/* Social Links */}
-          <div className="flex gap-4">
-            {socialLinks.map(({ href, icon: Icon, label }) => (
-              <Button
-                key={label}
-                variant="ghost"
-                size="icon"
-                asChild
-                className="hover:bg-primary hover:text-primary-foreground transition-colors !text-foreground dark:!text-foreground"
-              >
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                >
-                  <Icon className="h-5 w-5 !text-foreground dark:!text-foreground" />
-                </a>
-              </Button>
-            ))}
-          </div>
+          <SocialLinks variant="footer" showTooltips className="mt-2" />
         </div>
       </div>
     </footer>

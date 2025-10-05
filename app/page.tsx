@@ -61,19 +61,19 @@ const YouTubeSection = dynamic(
     ),
   }
 );
-const ServicesSection = dynamic(
-  () =>
-    import("@/components/services-section").then((mod) => ({
-      default: mod.ServicesSection,
-    })),
-  {
-    loading: () => (
-      <div className="py-32 flex justify-center">
-        <div className="loading-spinner w-8 h-8"></div>
-      </div>
-    ),
-  }
-);
+// const ServicesSection = dynamic(
+//   () =>
+//     import("@/components/services-section").then((mod) => ({
+//       default: mod.ServicesSection,
+//     })),
+//   {
+//     loading: () => (
+//       <div className="py-32 flex justify-center">
+//         <div className="loading-spinner w-8 h-8"></div>
+//       </div>
+//     ),
+//   }
+// );
 const ContactSection = dynamic(
   () =>
     import("@/components/contact-section").then((mod) => ({
@@ -242,7 +242,7 @@ export default async function Home() {
         </Suspense>
       </ErrorBoundary>
 
-      <ErrorBoundary>
+      {/* <ErrorBoundary>
         <Suspense
           fallback={
             <div className="py-32 flex justify-center">
@@ -252,7 +252,7 @@ export default async function Home() {
         >
           <ServicesSection />
         </Suspense>
-      </ErrorBoundary>
+      </ErrorBoundary> */}
 
       <ErrorBoundary>
         <Suspense
