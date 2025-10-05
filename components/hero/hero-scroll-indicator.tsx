@@ -25,7 +25,7 @@ export function HeroScrollIndicator({ onScroll }: HeroScrollIndicatorProps) {
           variant="ghost"
           size="icon"
           onClick={onScroll}
-          className="relative w-12 h-12 sm:w-14 sm:h-14 hidden lg:flex cursor-pointer rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white hover:border-primary dark:hover:bg-gray-800 dark:hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-gray-700 dark:text-white group"
+          className="relative w-12 h-12 sm:w-14 sm:h-14 hidden lg:flex rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white hover:border-primary dark:hover:bg-gray-800 dark:hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-gray-700 dark:text-white group"
           aria-label="Scroll to experience section"
         >
           <motion.div

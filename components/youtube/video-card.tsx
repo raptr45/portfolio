@@ -1,7 +1,11 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Play, Copy, Check } from "lucide-react";
@@ -15,7 +19,11 @@ interface VideoCardProps {
   published: string;
   videoId: string;
   openVideo: (url: string) => void;
-  copyToClipboard: (e: React.MouseEvent, videoUrl: string, videoId: string) => void;
+  copyToClipboard: (
+    e: React.MouseEvent,
+    videoUrl: string,
+    videoId: string
+  ) => void;
   copied: boolean;
 }
 
@@ -38,7 +46,7 @@ export function VideoCard({
       transition={{ duration: 0.3 }}
     >
       <Card
-        className="group overflow-hidden transition-all duration-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 pt-0 pb-6 bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-red-500/10 hover:scale-105"
+        className="group cursor-pointer overflow-hidden transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 pt-0 pb-6 bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-red-500/10 hover:scale-105"
         onClick={() => openVideo(videoUrl)}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -89,7 +97,11 @@ export function VideoCard({
                   aria-label="Copy video link"
                   className="rounded-full p-3 bg-slate-500 hover:bg-slate-600 text-white shadow-2xl shadow-slate-500/50 backdrop-blur-sm border border-slate-400/30"
                 >
-                  {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
+                  {copied ? (
+                    <Check className="h-5 w-5" />
+                  ) : (
+                    <Copy className="h-5 w-5" />
+                  )}
                 </Button>
               </TooltipTrigger>
               <TooltipContent>

@@ -213,7 +213,7 @@ export function Navbar() {
           {/* Logo */}
           <button
             className={cn(
-              "flex items-center transition-all duration-200 focus:outline-none focus:ring-2 rounded-lg px-4 -m-2 cursor-pointer group min-h-[48px] min-w-[80px] hover:shadow-md relative",
+              "flex items-center transition-all duration-200 focus:outline-none focus:ring-2 rounded-lg px-4 -m-2 group min-h-[48px] min-w-[80px] hover:shadow-md relative",
               activeSection === "home"
                 ? "bg-gradient-to-r from-primary/15 to-blue-600/15 border border-primary/30 shadow-md"
                 : "bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 border border-primary/20 hover:border-primary/40"
@@ -254,7 +254,7 @@ export function Navbar() {
                   variant="ghost"
                   size="lg"
                   className={cn(
-                    "text-lg text-cyan-600 hover:text-cyan-600 font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 cursor-pointer border border-transparent min-h-[48px] hover:shadow-md",
+                    "text-lg text-cyan-600 hover:text-cyan-600 font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 border border-transparent min-h-[48px] hover:shadow-md",
                     isActive
                       ? "text-cyan-600 dark:text-primary bg-cyan-200/15 dark:bg-primary/20 shadow-md border-primary/3 hover:bg-cyan-600/15 dark:hover:bg-primary/15"
                       : "text-cyan-600 dark:text-foreground dark:bg-primary/10 hover:bg-cyan-500/10 dark:hover:bg-primary/10 border-cyan-800/20 dark:border-primary/20 hover:border-cyan-600/35 dark:hover:border-primary/35 bg-cyan-600/5"
@@ -297,14 +297,14 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="cursor-pointer border border-primary/10 hover:border-primary/30 bg-primary/5 hover:bg-primary/10 hover:shadow-md transition-all duration-200 p-3 h-12 w-12"
+                  className="border border-primary/10 hover:border-primary/30 bg-primary/5 hover:bg-primary/10 hover:shadow-md transition-all duration-200 p-3 h-12 w-12"
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)] [&>button]:bg-red-400/70 [&>button]:hover:bg-red-500/60 [&>button]:outline-white [&>button]:outline-offset-2 [&>button]:outline-2 [&>button]:text-white [&>button]:cursor-pointer [&>button]:rounded-lg"
+                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)] [&>button]:bg-red-400/70 [&>button]:hover:bg-red-500/60 [&>button]:outline-white [&>button]:outline-offset-2 [&>button]:outline-2 [&>button]:text-white [&>button]:rounded-lg"
               >
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
@@ -320,7 +320,7 @@ export function Navbar() {
                         key={item.name}
                         variant="ghost"
                         className={cn(
-                          "justify-start text-left flex items-center gap-3 px-4 py-3 cursor-pointer transition-all duration-200 min-h-[48px] border border-transparent hover:shadow-md font-semibold",
+                          "justify-start text-left flex items-center gap-3 px-4 py-3 transition-all duration-200 min-h-[48px] border border-transparent hover:shadow-md font-semibold",
                           isActive
                             ? "text-cyan-600 dark:text-primary bg-cyan-200/15 dark:bg-primary/20 border-primary/20 shadow-md"
                             : "text-cyan-600 dark:text-foreground dark:bg-primary/5 hover:text-cyan-600 dark:hover:text-primary hover:bg-cyan-500/10 dark:hover:bg-primary/10 border-primary/5 hover:border-primary/20"

@@ -319,7 +319,7 @@ export function HeroSection() {
             <Button
               size="lg"
               onClick={() => scrollToSection("work")}
-              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold text-white border-0 cursor-pointer"
+              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold text-white border-0"
             >
               🚀 View My Work
             </Button>
@@ -327,7 +327,7 @@ export function HeroSection() {
               variant="outline"
               size="lg"
               onClick={() => scrollToSection("contact")}
-              className="text-2xl px-12 py-6 rounded-2xl border-2 border-gray-400/40 dark:border-white/30 bg-white/20 dark:bg-white/5 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white/30 dark:hover:bg-white/10 hover:border-gray-500/60 dark:hover:border-white/50 hover:scale-105 transition-all duration-300 font-bold cursor-pointer"
+              className="text-2xl px-12 py-6 rounded-2xl border-2 border-gray-400/40 dark:border-white/30 bg-white/20 dark:bg-white/5 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white/30 dark:hover:bg-white/10 hover:border-gray-500/60 dark:hover:border-white/50 hover:scale-105 transition-all duration-300 font-bold"
             >
               💬 Let&apos;s Connect
             </Button>
@@ -428,7 +428,7 @@ export function HeroSection() {
                 variant="ghost"
                 size="icon"
                 onClick={() => scrollToSection("experience")}
-                className="relative w-16 h-16 cursor-pointer rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white hover:border-primary dark:hover:bg-gray-800 dark:hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-gray-700 dark:text-white group"
+                className="relative w-16 h-16 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white hover:border-primary dark:hover:bg-gray-800 dark:hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 text-gray-700 dark:text-white group"
                 aria-label="Scroll to experience section"
               >
                 <motion.div

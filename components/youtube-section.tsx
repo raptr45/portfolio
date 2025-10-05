@@ -2,7 +2,11 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { YouTubeData } from "@/types/youtube";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check } from "lucide-react";
@@ -130,7 +134,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
               variant={filter === option.id ? "default" : "ghost"}
               size="lg"
               onClick={() => setFilter(option.id)}
-              className={`px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border cursor-pointer ${
+              className={`px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border ${
                 filter === option.id
                   ? "bg-red-500 hover:bg-red-600 text-white border-red-400 shadow-lg shadow-red-500/25"
                   : "bg-primary-foreground dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20 dark:hover:border-white/40"
