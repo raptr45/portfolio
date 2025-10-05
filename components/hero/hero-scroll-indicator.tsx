@@ -19,24 +19,31 @@ export function HeroScrollIndicator({ onScroll }: HeroScrollIndicatorProps) {
         onClick={onScroll}
         aria-label="Scroll to next section"
         className={cn(
-          "cursor-pointer group relative h-12 w-12 sm:h-14 sm:w-14 rounded-full border border-white/15 dark:border-white/20",
-          "bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-900/80 dark:to-gray-800/60 backdrop-blur-md",
+          "cursor-pointer group relative h-12 w-12 sm:h-14 sm:w-14 rounded-full",
+          // Base shell
+          "border border-white/15 dark:border-white/15 bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-950/70 dark:to-gray-800/60 backdrop-blur-md",
           "flex items-center justify-center overflow-hidden",
-          "transition-colors duration-300 hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+          "transition-colors duration-300 hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
         )}
       >
-        {/* Static subtle ring pulse (CSS only) */}
+        {/* Hover gradient overlay (Tailwind colors, easy to tweak) */}
         <span
           aria-hidden
-          className="absolute inset-0 rounded-full ring-2 ring-primary/0 group-hover:ring-primary/40 transition-[ring-color] duration-500"
+          className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/30 via-primary/20 to-blue-600/30"
         />
+        {/* Soft glow using blur (separate layer for stronger color editing) */}
         <span
           aria-hidden
-          className="pointer-events-none absolute -inset-1 rounded-full bg-gradient-to-b from-primary/0 via-primary/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          className="absolute inset-0 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-gradient-to-br from-primary/40 to-blue-600/40"
+        />
+        {/* Inner subtle ring that brightens on hover */}
+        <span
+          aria-hidden
+          className="absolute inset-0 rounded-full ring-1 ring-white/10 dark:ring-white/5 group-hover:ring-primary/50 transition-colors duration-500"
         />
         <motion.span
           aria-hidden
-          className="relative flex items-center justify-center"
+          className="relative z-10 flex items-center justify-center"
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
         >
