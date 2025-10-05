@@ -1,9 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Github, Linkedin, Mail, Youtube, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Twitter, Youtube } from "lucide-react";
 import React from "react";
 
 type SocialKey = "github" | "linkedin" | "youtube" | "email" | "twitter";
@@ -25,8 +29,8 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     label: "GitHub",
     tooltip: "Follow me on GitHub",
     icon: Github,
-    color: "bg-gray-900 text-white dark:bg-white dark:text-gray-900",
-    ring: "ring-gray-900/40 dark:ring-white/40",
+    color: "bg-gray-900 text-white dark:bg-gray-900 dark:text-white",
+    ring: "ring-gray-900/40 dark:ring-white/20",
   },
   linkedin: {
     key: "linkedin",
@@ -35,7 +39,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     tooltip: "Connect with me on LinkedIn",
     icon: Linkedin,
     color: "bg-[#0A66C2] text-white",
-    ring: "ring-[#0A66C2]/50",
+    ring: "ring-[#0A66C2]/50 dark:ring-white/20",
   },
   youtube: {
     key: "youtube",
@@ -44,7 +48,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     tooltip: "Subscribe on YouTube",
     icon: Youtube,
     color: "bg-[#FF0000] text-white",
-    ring: "ring-red-500/40",
+    ring: "ring-red-500/40 dark:ring-white/20",
   },
   email: {
     key: "email",
@@ -53,7 +57,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     tooltip: "Send me an email",
     icon: Mail,
     color: "bg-gradient-to-br from-primary to-blue-600 text-white",
-    ring: "ring-primary/40",
+    ring: "ring-primary/40 dark:ring-white/20",
   },
   twitter: {
     key: "twitter",
@@ -62,7 +66,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     tooltip: "Follow me on X (Twitter)",
     icon: Twitter,
     color: "bg-[#1D9BF0] text-white",
-    ring: "ring-sky-500/40",
+    ring: "ring-sky-500/40 dark:ring-white/20",
   },
 };
 
@@ -74,6 +78,7 @@ interface SocialLinksProps {
   showTooltips?: boolean;
   animated?: boolean; // disable framer motion for minimal contexts
   justify?: "start" | "center" | "end"; // horizontal alignment
+  scheme?: "brand" | "neutral"; // color strategy (footer wants neutral)
 }
 
 export function SocialLinks({
@@ -84,6 +89,7 @@ export function SocialLinks({
   showTooltips = true,
   animated = true,
   justify = "center",
+  scheme,
 }: SocialLinksProps) {
   // Default include sets per variant
   const defaultSets: Record<typeof variant, SocialKey[]> = {
@@ -94,6 +100,10 @@ export function SocialLinks({
 
   const keys = include && include.length ? include : defaultSets[variant];
   const items = keys.map((k) => BASE_ITEMS[k]);
+
+  // Determine color scheme (footer defaults to neutral subtle monochrome)
+  const effectiveScheme =
+    scheme || (variant === "footer" ? "neutral" : "brand");
 
   // Size mapping
   const sizeMap = {
@@ -148,15 +158,21 @@ export function SocialLinks({
             aria-label={label}
             whileHover={animated && variant === "hero" ? { y: -6 } : undefined}
             whileTap={undefined}
-            transition={animated && variant === "hero" ? { type: "tween", ease: [0.25, 0.8, 0.3, 1], duration: 0.02 } : undefined}
+            transition={
+              animated && variant === "hero"
+                ? { type: "tween", ease: [0.25, 0.8, 0.3, 1], duration: 0.02 }
+                : undefined
+            }
             className={cn(
               "group relative flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-200 ring-2 ring-transparent focus-visible:outline-none focus-visible:ring-2",
               finalSize,
               radiusMap[variant],
-              color,
-              variant === "hero"
+              effectiveScheme === "brand"
+                ? color
+                : "bg-white/10 text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20",
+              variant === "hero" && effectiveScheme === "brand"
                 ? `hover:${ring} focus-visible:${ring}`
-                : "hover:brightness-110",
+                : ""
             )}
           >
             <Icon className="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-150" />
@@ -166,12 +182,17 @@ export function SocialLinks({
         if (!showTooltips) return content;
 
         return (
-            <Tooltip key={key}>
-              <TooltipTrigger asChild>{content}</TooltipTrigger>
-              <TooltipContent side="top" className="px-3 py-2 text-sm font-semibold shadow-lg">
-                <span className="block leading-snug tracking-wide">{tooltip}</span>
-              </TooltipContent>
-            </Tooltip>
+          <Tooltip key={key}>
+            <TooltipTrigger asChild>{content}</TooltipTrigger>
+            <TooltipContent
+              side="top"
+              className="px-3 py-2 text-sm font-semibold shadow-lg"
+            >
+              <span className="block leading-snug tracking-wide">
+                {tooltip}
+              </span>
+            </TooltipContent>
+          </Tooltip>
         );
       })}
     </div>
