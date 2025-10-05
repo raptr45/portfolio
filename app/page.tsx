@@ -11,7 +11,7 @@ import { Navbar } from "@/components/navbar";
 // Dynamic imports for non-critical components
 const AboutSection = dynamic(
   () =>
-    import("@/components/placeholder-sections").then((mod) => ({
+    import("@/components/about-section").then((mod) => ({
       default: mod.AboutSection,
     })),
   {
@@ -24,7 +24,7 @@ const AboutSection = dynamic(
 );
 const WorkSection = dynamic(
   () =>
-    import("@/components/placeholder-sections").then((mod) => ({
+    import("@/components/work-section").then((mod) => ({
       default: mod.WorkSection,
     })),
   {
