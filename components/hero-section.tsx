@@ -66,6 +66,7 @@ export function HeroSection() {
                       src={data.profile}
                       alt="Abid Al Wassie"
                       fill
+                      sizes="(max-width: 640px) 16rem, (max-width: 1024px) 20rem, 24rem"
                       className="object-cover object-top rounded-3xl transition-transform duration-300 hover:scale-110"
                       priority
                     />
