@@ -1,10 +1,10 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Project } from "@/lib/projects-data";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { ProjectImage } from "./project-image";
-import { ProjectStatusBadge } from "./project-status-badge";
 import { ProjectMeta } from "./project-meta";
+import { ProjectStatusBadge } from "./project-status-badge";
 import { ProjectTechList } from "./project-tech-list";
 
 export interface ProjectCardProps {
@@ -15,7 +15,7 @@ export interface ProjectCardProps {
   loading?: boolean;
 }
 
-export function ProjectCard({
+function ProjectCardComponent({
   project,
   onViewDetails,
   size = "small",
@@ -61,21 +61,38 @@ export function ProjectCard({
         <div className="pointer-events-none z-20">
           <ProjectStatusBadge status={project.status} large={isLarge} />
         </div>
-        <div className={`space-y-3 flex-1 flex flex-col ${isLarge ? "p-6" : "p-4"}`}>
+        <div
+          className={`space-y-3 flex-1 flex flex-col ${
+            isLarge ? "p-6" : "p-4"
+          }`}
+        >
           <div className="flex-1">
             <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className={`font-bold text-foreground line-clamp-2 ${isLarge ? "text-xl" : "text-lg"}`}>
+              <h3
+                className={`font-bold text-foreground line-clamp-2 ${
+                  isLarge ? "text-xl" : "text-lg"
+                }`}
+              >
                 {project.title}
               </h3>
             </div>
-            <p className={`text-muted-foreground leading-relaxed line-clamp-3 mb-3 ${isLarge ? "text-base" : "text-sm"}`}>
+            <p
+              className={`text-muted-foreground leading-relaxed line-clamp-3 mb-3 ${
+                isLarge ? "text-base" : "text-sm"
+              }`}
+            >
               {project.description}
             </p>
             <ProjectMeta project={project} isLarge={isLarge} />
           </div>
-          <ProjectTechList technologies={project.technologies} isLarge={isLarge} />
+          <ProjectTechList
+            technologies={project.technologies}
+            isLarge={isLarge}
+          />
         </div>
       </CardContent>
     </Card>
   );
 }
+
+export const ProjectCard = memo(ProjectCardComponent);

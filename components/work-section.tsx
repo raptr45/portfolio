@@ -1,10 +1,17 @@
 "use client";
-import { ProjectModal } from "@/components/project-modal";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCard } from "@/components/work/project-card";
 import { projects, type Project } from "@/lib/projects-data";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useCallback, useMemo, useState } from "react";
+// Lazy-load heavy modal; code split for faster TTI
+const ProjectModal = dynamic(
+  () => import("@/components/project-modal").then((m) => m.ProjectModal),
+  {
+    loading: () => null,
+  }
+);
 
 export function WorkSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -25,12 +32,12 @@ export function WorkSection() {
     setSelectedProject(null);
   }, []);
 
-  const { featuredProjects } = useMemo(
-    () => ({
-      featuredProjects: projects.filter((p) => p.featured),
-    }),
-    []
-  );
+  const featuredProjects = useMemo(() => {
+    // Attach an index for priority decisions without mutating source
+    return projects
+      .filter((p) => p.featured)
+      .map((p, idx) => ({ ...p, featuredIndex: idx }));
+  }, []);
 
   return (
     <section
@@ -76,6 +83,10 @@ export function WorkSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  onMouseEnter={() => {
+                    // Warm modal chunk when user shows intent
+                    import("@/components/project-modal");
+                  }}
                 >
                   <ProjectCard
                     project={project}

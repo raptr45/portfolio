@@ -13,6 +13,10 @@ export interface Project {
   highlights?: string[];
   duration?: string;
   team?: string;
+  /** Optional base64 blur placeholder for LCP / progressive image loading */
+  blurDataURL?: string;
+  /** Injected at runtime when mapping featured projects to control priority */
+  featuredIndex?: number;
 }
 
 export const projects: Project[] = [

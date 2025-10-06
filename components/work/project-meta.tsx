@@ -1,12 +1,13 @@
 "use client";
 import type { Project } from "@/lib/projects-data";
+import { memo } from "react";
 
 interface ProjectMetaProps {
   project: Project;
   isLarge: boolean;
 }
 
-export function ProjectMeta({ project, isLarge }: ProjectMetaProps) {
+function ProjectMetaComponent({ project, isLarge }: ProjectMetaProps) {
   if (!isLarge) return null;
   return (
     <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
@@ -25,3 +26,5 @@ export function ProjectMeta({ project, isLarge }: ProjectMetaProps) {
     </div>
   );
 }
+
+export const ProjectMeta = memo(ProjectMetaComponent);

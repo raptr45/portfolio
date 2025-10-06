@@ -1,8 +1,9 @@
 "use client";
-import Image from "next/image";
-import { Eye } from "lucide-react";
-import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects-data";
+import { motion } from "framer-motion";
+import { Eye } from "lucide-react";
+import Image from "next/image";
+import { memo } from "react";
 
 interface ProjectImageProps {
   project: Project;
@@ -16,7 +17,7 @@ interface ProjectImageProps {
   showFeatured: boolean;
 }
 
-export function ProjectImage({
+function ProjectImageComponent({
   project,
   isLarge,
   loading,
@@ -47,6 +48,10 @@ export function ProjectImage({
               ? "(max-width: 768px) 100vw, 50vw"
               : "(max-width: 768px) 100vw, 33vw"
           }
+          // Only prioritize the very first featured large image to help LCP; others lazy.
+          priority={isLarge && project.featuredIndex === 0}
+          placeholder={project.blurDataURL ? "blur" : undefined}
+          blurDataURL={project.blurDataURL}
           onLoad={() => setImageLoading(false)}
           onError={() => {
             setImageError(true);
@@ -94,3 +99,5 @@ export function ProjectImage({
     </div>
   );
 }
+
+export const ProjectImage = memo(ProjectImageComponent);
