@@ -239,7 +239,8 @@ export function Navbar() {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden lg:flex items-center space-x-2">
+            {/* md:flex => lg:flex */}
             {navItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
               const IconComponent = isActive ? item.activeIcon : item.icon;
@@ -289,7 +290,8 @@ export function Navbar() {
 
             {/* Mobile Menu */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild className="md:hidden">
+              <SheetTrigger asChild className="lg:hidden">
+                {/* md:hidden => lg:hidden */}
                 <Button
                   variant="ghost"
                   size="icon"
