@@ -29,7 +29,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     label: "GitHub",
     tooltip: "Follow me on GitHub",
     icon: Github,
-    color: "bg-gray-900 text-white dark:bg-gray-900 dark:text-white",
+    color: "bg-social-github",
     ring: "ring-gray-900/40 dark:ring-white/20",
   },
   linkedin: {
@@ -38,7 +38,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     label: "LinkedIn",
     tooltip: "Connect with me on LinkedIn",
     icon: Linkedin,
-    color: "bg-[#0A66C2] text-white",
+    color: "bg-social-linkedin",
     ring: "ring-[#0A66C2]/50 dark:ring-white/20",
   },
   youtube: {
@@ -47,7 +47,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     label: "YouTube",
     tooltip: "Subscribe on YouTube",
     icon: Youtube,
-    color: "bg-[#FF0000] text-white",
+    color: "bg-social-youtube",
     ring: "ring-red-500/40 dark:ring-white/20",
   },
   email: {
@@ -56,7 +56,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     label: "Email",
     tooltip: "Send me an email",
     icon: Mail,
-    color: "bg-gradient-to-br from-primary to-blue-600 text-white",
+    color: "bg-social-email",
     ring: "ring-primary/40 dark:ring-white/20",
   },
   twitter: {
@@ -65,7 +65,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
     label: "Twitter / X",
     tooltip: "Follow me on X (Twitter)",
     icon: Twitter,
-    color: "bg-[#1D9BF0] text-white",
+    color: "bg-social-twitter",
     ring: "ring-sky-500/40 dark:ring-white/20",
   },
 };
@@ -164,7 +164,7 @@ export function SocialLinks({
                 : undefined
             }
             className={cn(
-              "group relative flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-200 ring-2 ring-transparent focus-visible:outline-none focus-visible:ring-2",
+              "group relative flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-200 ring-2 ring-transparent focus-visible:outline-none focus-visible:ring-2 social-hover",
               finalSize,
               radiusMap[variant],
               effectiveScheme === "brand"

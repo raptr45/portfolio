@@ -615,4 +615,14 @@
 
   /* YouTube badge background */
   .bg-yt-badge { @apply bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30; }
+
+  /* Social icon gradient backgrounds */
+  .bg-social-github { @apply bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white; }
+  .bg-social-linkedin { @apply bg-gradient-to-br from-[#0A66C2] via-[#0a5cb0] to-[#094b8f] text-white; }
+  .bg-social-youtube { @apply bg-gradient-to-br from-red-400 via-red-500 to-rose-500 text-white; }
+  .bg-social-email { @apply bg-gradient-to-br from-sky-200 via-blue-400 to-indigo-600 text-white; }
+  .bg-social-twitter { @apply bg-gradient-to-br from-sky-500 via-sky-500 to-blue-600 text-white; }
+
+  /* Hover accent (applied alongside gradient) */
+  .social-hover { @apply hover:brightness-110 active:brightness-95 transition-colors; }
 }

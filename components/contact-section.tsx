@@ -97,22 +97,21 @@ export function ContactSection() {
               </p>
             </motion.div>
 
-            <motion.div
+            <motion.a
+              href="mailto:abidalwassie@outlook.com"
+              aria-label="Email abidalwassie@outlook.com"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-center gap-3 sm:gap-4 group p-3 sm:p-4 rounded-2xl border border-primary/15 bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 transition-colors"
+              className="flex items-center gap-3 sm:gap-4 group p-3 sm:p-4 rounded-2xl border border-primary/15 bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 transition-colors cursor-pointer focus-brand outline-none"
             >
               <Mail className="h-6 w-6 sm:h-7 sm:w-7 text-primary flex-shrink-0 drop-shadow" />
-              <a
-                href="mailto:abidalwassie@outlook.com"
-                className="text-lg sm:text-xl lg:text-2xl font-semibold hover:text-primary transition-colors break-all"
-              >
+              <span className="text-lg sm:text-xl lg:text-2xl font-semibold group-hover:text-primary transition-colors break-all select-text">
                 abidalwassie@outlook.com
-              </a>
+              </span>
               <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-muted-foreground group-hover:translate-x-1 transition-transform flex-shrink-0" />
-            </motion.div>
+            </motion.a>
 
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -145,8 +144,8 @@ export function ContactSection() {
           >
             <Card className="relative overflow-hidden w-full border border-primary/20 bg-background/80 dark:bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-lg">
               {/* Subtle corner gradient accents */}
-              <div className="pointer-events-none absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/20 to-transparent rounded-full translate-x-10 -translate-y-10" />
-              <div className="pointer-events-none absolute bottom-0 left-0 w-44 h-44 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full -translate-x-10 translate-y-10" />
+              <div className="pointer-events-none absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/20 to-transparent rounded-full translate-x-10 -translate-y-10 blur-xl" />
+              <div className="pointer-events-none absolute bottom-0 left-0 w-44 h-44 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full -translate-x-10 translate-y-10 blur-xl" />
               <CardContent className="p-5 sm:p-7 lg:p-9 relative z-10">
                 <form
                   onSubmit={handleSubmit}
@@ -169,7 +168,7 @@ export function ContactSection() {
                     <div className="space-y-2">
                       <label
                         htmlFor="name"
-                        className="text-sm font-semibold text-foreground/80"
+                        className="text-md font-semibold text-foreground/80"
                       >
                         Full Name
                       </label>
@@ -177,19 +176,19 @@ export function ContactSection() {
                         id="name"
                         name="name"
                         type="text"
-                        placeholder="Enter your full name"
+                        placeholder="Enter your name"
                         value={formData.name}
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className="h-11 sm:h-12 px-3 sm:px-4 border border-border/50 hover:border-border/70 focus:border-primary focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-background bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 w-full placeholder:text-muted-foreground/60"
+                        className="h-11 sm:h-12 px-3 sm:px-4 border-none ring-2 ring-primary/40 focus-visible:ring-3 focus-visible:ring-blue-500/80 bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 w-full placeholder:text-muted-foreground/60"
                       />
                     </div>
 
                     <div className="space-y-2">
                       <label
                         htmlFor="email"
-                        className="text-sm font-semibold text-foreground/80"
+                        className="text-md font-semibold text-foreground/80"
                       >
                         Email Address
                       </label>
@@ -202,14 +201,14 @@ export function ContactSection() {
                         onChange={handleInputChange}
                         required
                         disabled={isSubmitting}
-                        className="h-11 sm:h-12 px-3 sm:px-4 border border-border/50 hover:border-border/70 focus:border-primary focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-background bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 w-full placeholder:text-muted-foreground/60"
+                        className="h-11 sm:h-12 px-3 sm:px-4 border-none ring-2 ring-primary/40 focus-visible:ring-3 focus-visible:ring-blue-500/80 bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 w-full placeholder:text-muted-foreground/60"
                       />
                     </div>
 
                     <div className="space-y-2">
                       <label
                         htmlFor="message"
-                        className="text-sm font-semibold text-foreground/80"
+                        className="text-md font-semibold text-foreground/80"
                       >
                         Project Details
                       </label>
@@ -222,7 +221,7 @@ export function ContactSection() {
                         required
                         disabled={isSubmitting}
                         rows={4}
-                        className="px-3 sm:px-4 py-3 border border-border/50 hover:border-border/70 focus:border-primary focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-background bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 resize-none w-full min-h-[140px] placeholder:text-muted-foreground/60"
+                        className="px-3 sm:px-4 py-3 border-none ring-2 ring-primary/40 focus-visible:ring-3 focus-visible:ring-blue-500/80 bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 resize-none w-full min-h-[140px] placeholder:text-muted-foreground/60"
                       />
                     </div>
                   </div>
