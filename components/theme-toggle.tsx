@@ -29,7 +29,7 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
-      className="h-11 w-11 rounded-full bg-primary/5 border border-primary/20 hover:bg-primary/10 transition-colors duration-200 flex items-center justify-center"
+      className="h-11 w-11 rounded-full bg-primary/5 border border-primary/20 hover:bg-primary/10 dark:hover:bg-primary/15 transition-colors duration-200 flex items-center justify-center"
       onClick={handleToggle}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >

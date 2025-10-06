@@ -293,14 +293,14 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="border border-primary/10 hover:border-primary/30 bg-primary/5 hover:bg-primary/10 hover:shadow-md transition-all duration-200 p-3 h-12 w-12"
+                  className="border border-primary/10 hover:border-primary/30 bg-primary/5 hover:bg-primary/10 dark:hover:bg-primary/15 hover:shadow-md transition-all duration-200 p-3 h-12 w-12"
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)] [&>button]:bg-red-400/70 [&>button]:hover:bg-red-500/60 [&>button]:outline-white [&>button]:outline-offset-2 [&>button]:outline-2 [&>button]:text-white [&>button]:rounded-lg"
+                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)] [&>button]:bg-foreground/15 [&>button]:hover:bg-foreground/20 [&>button]:outline-white/50 [&>button]:outline-offset-1 [&>button]:outline-2 [&>button]:text-white [&>button]:rounded-lg"
               >
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 

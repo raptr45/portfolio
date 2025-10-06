@@ -25,7 +25,7 @@ export function HeroSection() {
     >
       {/* Main Header */}
       <div className="container mx-auto px-4 sm:px-6 relative z-10 py-8 sm:py-12 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center max-w-7xl mx-auto mb-4 md:mb-6 lg:mb-12">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -49,7 +49,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative flex justify-center lg:justify-end order-first lg:order-last"
           >
-            <div className="relative mt-16 md:mt-8 lg:mt-12">
+            <div className="relative mt-14 md:mt-8 lg:mt-12">
               {" "}
               {/* Gradient Background Card, Added Margin */}
               <motion.div
