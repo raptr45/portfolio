@@ -1,10 +1,10 @@
 "use client";
-import { useCallback, useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { ProjectModal } from "@/components/project-modal";
-import { projects, type Project } from "@/lib/projects-data";
+import { Badge } from "@/components/ui/badge";
 import { ProjectCard } from "@/components/work/project-card";
+import { projects, type Project } from "@/lib/projects-data";
+import { motion } from "framer-motion";
+import { useCallback, useMemo, useState } from "react";
 
 export function WorkSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -55,11 +55,12 @@ export function WorkSection() {
             >
               🚀 Portfolio
             </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient-soft">
               Featured Work
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed">
-              A showcase of projects I&apos;ve worked on, from <span className="text-primary font-semibold">concept</span> to
+              A showcase of projects I&apos;ve worked on, from{" "}
+              <span className="text-primary font-semibold">concept</span> to
               <span className="text-green-600 font-semibold"> deployment</span>.
             </p>
           </motion.div>
@@ -93,7 +94,7 @@ export function WorkSection() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
                 href="#work-all"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-primary to-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/40"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-brand-solid text-white shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/40"
               >
                 View All
                 <span className="text-xl" aria-hidden>

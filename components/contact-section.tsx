@@ -87,7 +87,7 @@ export function ContactSection() {
               </p>
               <h2
                 id="contact-heading"
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gradient-soft"
               >
                 Let&apos;s collaborate
               </h2>
@@ -154,10 +154,10 @@ export function ContactSection() {
                   aria-describedby="contact-note"
                 >
                   <div className="text-center space-y-3 sm:space-y-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white shadow-md">
+                    <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-brand-solid text-white shadow-md">
                       <Mail className="h-6 w-6 sm:h-8 sm:w-8" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gradient-form-heading">
                       Send me a message
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
@@ -231,7 +231,7 @@ export function ContactSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-primary/50"
+                    className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold bg-brand-solid hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center gap-2 sm:gap-3">

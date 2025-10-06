@@ -1,6 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 export function ExperienceHeader() {
   return (
@@ -17,11 +17,11 @@ export function ExperienceHeader() {
         >
           ✨ Experience
         </Badge>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gradient-soft">
           Work Experience
         </h2>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-          My professional journey spanning over {" "}
+          My professional journey spanning over{" "}
           <span className="text-primary font-semibold">8+ years</span> in the
           industry.
         </p>

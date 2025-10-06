@@ -229,7 +229,7 @@ export function Navbar() {
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
                 <span className="text-white font-bold text-2xl">A</span>
               </div>
-              <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-2xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent pointer-events-none">
+              <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-2xl text-gradient-brand pointer-events-none">
                 bid
               </span>
             </div>

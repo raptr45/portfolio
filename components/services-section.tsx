@@ -51,7 +51,7 @@ export function ServicesSection() {
               <p className="text-lg font-bold text-primary uppercase tracking-widest">
                 🚀 My Services
               </p>
-              <h2 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              <h2 className="text-5xl md:text-6xl font-bold text-balance text-gradient-soft">
                 Things I can do for my clients
               </h2>
               <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed">
@@ -71,7 +71,7 @@ export function ServicesSection() {
                   key={label}
                   className="text-center space-y-3 p-4 rounded-xl bg-primary/5 border-2 border-primary/10"
                 >
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                  <div className="text-4xl md:text-5xl font-bold text-gradient-brand">
                     {number}
                     {suffix}
                   </div>

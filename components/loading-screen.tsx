@@ -48,7 +48,7 @@ export function LoadingScreen() {
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
                   <span className="text-white font-bold text-4xl">A</span>
                 </div>
-                <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-4xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent pointer-events-none">
+                <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-4xl text-gradient-brand pointer-events-none">
                   bid
                 </span>
               </div>
