@@ -585,13 +585,15 @@
 
   /* Brand Surfaces */
   .bg-brand-solid { @apply bg-gradient-to-r from-primary to-blue-600; }
-  .bg-brand-multi { @apply bg-gradient-to-r from-primary via-blue-600 to-purple-600; }
+  .bg-brand-multi { @apply bg-gradient-to-tl from-sky-500 via-blue-500 to-indigo-500; }
   .bg-brand-faint { @apply bg-gradient-to-r from-primary/5 to-blue-600/5; }
   .hover\:bg-brand-faint:hover { @apply from-primary/10 to-blue-600/10; }
+  
 
   /* Overlays */
   .overlay-dark-soft { @apply bg-gradient-to-t from-black/80 via-black/20 to-transparent; }
   .overlay-dark-strong { @apply bg-gradient-to-t from-black/80 via-black/40 to-transparent; }
+  
 
   /* Timeline / dividers */
   .bg-timeline-line { @apply bg-gradient-to-b from-primary/30 via-primary/10 to-transparent; }

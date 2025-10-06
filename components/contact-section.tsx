@@ -231,7 +231,7 @@ export function ContactSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold bg-brand-solid hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-primary/50"
+                    className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold bg-brand-multi hover:brightness-120 shadow-md hover:shadow-lg transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center gap-2 sm:gap-3">
@@ -239,7 +239,7 @@ export function ContactSection() {
                         Sending your message...
                       </div>
                     ) : (
-                      <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="flex items-center gap-2 sm:gap-3 text-white">
                         <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
                         Send Message
                       </div>

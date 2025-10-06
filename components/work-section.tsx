@@ -94,7 +94,7 @@ export function WorkSection() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
                 href="#work-all"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-brand-solid text-white shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/40"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-brand-multi text-white shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/40"
               >
                 View All
                 <span className="text-xl" aria-hidden>
