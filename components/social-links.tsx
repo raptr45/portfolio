@@ -52,7 +52,7 @@ const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
   },
   email: {
     key: "email",
-    href: "mailto:abidalwassie@outlook.com",
+    href: "mailto:abidalwassie@gmail.com",
     label: "Email",
     tooltip: "Send me an email",
     icon: Mail,

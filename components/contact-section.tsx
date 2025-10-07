@@ -1,59 +1,94 @@
 "use client";
 
-import type React from "react";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  contactFormSchema,
+  type ContactFormData,
+} from "@/lib/validations/contact";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { SocialLinks } from "./social-links";
 
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export function ContactSection() {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/mdobjjbo", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
 
+      const result = await response.json();
+
       if (response.ok) {
-        toast.success("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
+        toast.success("✅ Message sent successfully!", {
+          description:
+            "Thanks for reaching out! I'll get back to you within 24 hours.",
+          duration: 5000,
+        });
+        reset();
       } else {
-        throw new Error("Failed to send message");
+        // Handle different types of errors
+        if (response.status === 400) {
+          toast.error("❌ Invalid form data", {
+            description: result.details
+              ? "Please check your input and try again."
+              : result.error,
+            duration: 4000,
+          });
+        } else if (response.status === 500) {
+          toast.error("❌ Server error", {
+            description:
+              "Something went wrong on our end. Please try again or email me directly.",
+            duration: 4000,
+          });
+        } else {
+          toast.error("❌ Failed to send message", {
+            description:
+              result.error || "Please try again or contact me directly.",
+            duration: 4000,
+          });
+        }
+        throw new Error(result.error || "Failed to send message");
       }
-    } catch {
-      toast.error("Failed to send message. Please try again.");
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      // Only show toast if we haven't already shown one above
+      if (!(error as Error)?.message?.includes("Failed to send message")) {
+        toast.error("❌ Network error", {
+          description:
+            "Please check your connection and try again, or email me directly at abidalwassie@gmail.com",
+          duration: 6000,
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -98,8 +133,8 @@ export function ContactSection() {
             </motion.div>
 
             <motion.a
-              href="mailto:abidalwassie@outlook.com"
-              aria-label="Email abidalwassie@outlook.com"
+              href="mailto:abidalwassie@gmail.com"
+              aria-label="Email abidalwassie@gmail.com"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -108,7 +143,7 @@ export function ContactSection() {
             >
               <Mail className="h-6 w-6 sm:h-7 sm:w-7 text-primary flex-shrink-0 drop-shadow" />
               <span className="text-lg sm:text-xl lg:text-2xl font-semibold group-hover:text-primary transition-colors break-all select-text">
-                abidalwassie@outlook.com
+                abidalwassie@gmail.com
               </span>
               <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-muted-foreground group-hover:translate-x-1 transition-transform flex-shrink-0" />
             </motion.a>
@@ -148,7 +183,7 @@ export function ContactSection() {
               <div className="pointer-events-none absolute bottom-0 left-0 w-44 h-44 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full -translate-x-10 translate-y-10 blur-xl" />
               <CardContent className="p-5 sm:p-7 lg:p-9 relative z-10">
                 <form
-                  onSubmit={handleSubmit}
+                  onSubmit={handleSubmit(onSubmit)}
                   className="space-y-6 sm:space-y-8"
                   aria-describedby="contact-note"
                 >
@@ -174,15 +209,17 @@ export function ContactSection() {
                       </label>
                       <Input
                         id="name"
-                        name="name"
                         type="text"
                         placeholder="Enter your name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
+                        {...register("name")}
                         disabled={isSubmitting}
                         className="h-11 sm:h-12 px-3 sm:px-4 border-none ring-2 ring-primary/40 focus-visible:ring-3 focus-visible:ring-blue-500/80 bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 w-full placeholder:text-muted-foreground/60"
                       />
+                      {errors.name && (
+                        <p className="text-sm text-red-500 mt-1">
+                          {errors.name.message}
+                        </p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -194,15 +231,17 @@ export function ContactSection() {
                       </label>
                       <Input
                         id="email"
-                        name="email"
                         type="email"
                         placeholder="Enter your email address"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
+                        {...register("email")}
                         disabled={isSubmitting}
                         className="h-11 sm:h-12 px-3 sm:px-4 border-none ring-2 ring-primary/40 focus-visible:ring-3 focus-visible:ring-blue-500/80 bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 w-full placeholder:text-muted-foreground/60"
                       />
+                      {errors.email && (
+                        <p className="text-sm text-red-500 mt-1">
+                          {errors.email.message}
+                        </p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -214,15 +253,17 @@ export function ContactSection() {
                       </label>
                       <Textarea
                         id="message"
-                        name="message"
                         placeholder="Tell me about your project, timeline, and requirements..."
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
+                        {...register("message")}
                         disabled={isSubmitting}
                         rows={4}
                         className="px-3 sm:px-4 py-3 border-none ring-2 ring-primary/40 focus-visible:ring-3 focus-visible:ring-blue-500/80 bg-muted/60 dark:bg-muted/40 backdrop-blur-sm transition-colors duration-200 resize-none w-full min-h-[140px] placeholder:text-muted-foreground/60"
                       />
+                      {errors.message && (
+                        <p className="text-sm text-red-500 mt-1">
+                          {errors.message.message}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -233,7 +274,7 @@ export function ContactSection() {
                     className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold bg-brand-multi hover:brightness-120 shadow-md hover:shadow-lg transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
                     {isSubmitting ? (
-                      <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="flex items-center gap-2 sm:gap-3 text-white">
                         <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                         Sending your message...
                       </div>

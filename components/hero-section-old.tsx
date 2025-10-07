@@ -398,7 +398,7 @@ export function HeroSection() {
                 asChild
                 className="relative w-16 h-16 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-red-50 hover:border-red-500 dark:hover:bg-red-950 dark:hover:border-red-400 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
               >
-                <a href="mailto:abidalwassie@outlook.com" aria-label="Email">
+                <a href="mailto:abidalwassie@gmail.com" aria-label="Email">
                   <Mail className="h-8 w-8 group-hover:scale-110 group-hover:text-red-600 dark:group-hover:text-red-400 transition-all duration-200" />
                 </a>
               </Button>
