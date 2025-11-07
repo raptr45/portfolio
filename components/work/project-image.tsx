@@ -31,7 +31,7 @@ function ProjectImageComponent({
   return (
     <div
       className={`relative overflow-hidden bg-muted ${
-        isLarge ? "aspect-[16/10]" : "aspect-[4/3]"
+        isLarge ? "aspect-16/10" : "aspect-4/3"
       }`}
       onClick={onClick}
     >
@@ -81,7 +81,7 @@ function ProjectImageComponent({
         </div>
       )}
 
-      <motion.div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-300 flex items-center justify-center">
+      <motion.div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-300 flex items-center justify-center">
         <div className="text-white text-center">
           {loading ? (
             <div className="flex items-center gap-2">

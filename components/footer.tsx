@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8 justify-between">
           {/* Left: Logo */}
           <div className="relative w-16 h-12 flex items-center">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
+            <div className="w-8 h-8 rounded-full bg-linear-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
               <span className="text-white font-bold text-2xl">A</span>
             </div>
             <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-2xl text-gradient-brand pointer-events-none">
@@ -17,7 +17,7 @@ export function Footer() {
           </div>
 
           {/* Center: Copyright */}
-          <p className="text-center text-muted-foreground md:flex-1 order-last md:order-none leading-relaxed">
+          <p className="text-center text-muted-foreground md:flex-1 order-last md:order-0 leading-relaxed">
             &copy; {year} Copyright:{" "}
             <a
               href="https://github.com/AbidAlWassie"
@@ -30,7 +30,7 @@ export function Footer() {
           </p>
 
           {/* Right: Social */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <SocialLinks
               variant="footer"
               include={["youtube", "github", "linkedin", "twitter"]}

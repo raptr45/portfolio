@@ -200,8 +200,8 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-gradient-to-r dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30  backdrop-blur-xl backdrop-saturate-150 border-b border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
-          : "bg-gradient-to-r from-primary/10 to-blue-600/10 backdrop-blur-md backdrop-saturate-125 border-b border-primary/15 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+          ? "bg-linear-to-r dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30  backdrop-blur-xl backdrop-saturate-150 border-b border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+          : "bg-linear-to-r from-primary/10 to-blue-600/10 backdrop-blur-md backdrop-saturate-125 border-b border-primary/15 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
       )}
     >
       <div className="container mx-auto px-6">
@@ -209,10 +209,10 @@ export function Navbar() {
           {/* Logo */}
           <button
             className={cn(
-              "flex items-center transition-all duration-200 focus:outline-none focus:ring-2 rounded-lg px-4 -m-2 group min-h-[48px] min-w-[80px] hover:shadow-md relative cursor-pointer",
+              "flex items-center transition-all duration-200 focus:outline-none focus:ring-2 rounded-lg px-4 -m-2 group min-h-12 min-w-20 hover:shadow-md relative cursor-pointer",
               activeSection === "home"
-                ? "bg-gradient-to-r from-primary/15 to-blue-600/15 border border-primary/30 shadow-md"
-                : "bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 border border-primary/20 hover:border-primary/40"
+                ? "bg-linear-to-r from-primary/15 to-blue-600/15 border border-primary/30 shadow-md"
+                : "bg-linear-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 border border-primary/20 hover:border-primary/40"
             )}
             onClick={() => scrollToSection("#home")}
             aria-label="Go to top of page"
@@ -226,7 +226,7 @@ export function Navbar() {
             }
           >
             <div className="relative w-16 h-12 flex items-center">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
+              <div className="w-8 h-8 rounded-full bg-linear-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
                 <span className="text-white font-bold text-2xl">A</span>
               </div>
               <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-2xl text-gradient-brand pointer-events-none">
@@ -251,7 +251,7 @@ export function Navbar() {
                   variant="ghost"
                   size="lg"
                   className={cn(
-                    "text-lg text-cyan-600 hover:text-cyan-600 font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 border border-transparent min-h-[48px] hover:shadow-md",
+                    "text-lg text-cyan-600 hover:text-cyan-600 font-semibold transition-all duration-200 px-6 py-3 rounded-full relative flex items-center gap-2 border border-transparent min-h-12 hover:shadow-md",
                     isActive
                       ? "text-cyan-600 dark:text-primary bg-cyan-200/15 dark:bg-primary/20 shadow-md border-primary/3 hover:bg-cyan-600/15 dark:hover:bg-primary/15"
                       : "text-cyan-600 dark:text-foreground dark:bg-primary/10 hover:bg-cyan-500/10 dark:hover:bg-primary/10 border-cyan-800/20 dark:border-primary/20 hover:border-cyan-600/35 dark:hover:border-primary/35 bg-cyan-600/5"
@@ -269,7 +269,7 @@ export function Navbar() {
                 >
                   <IconComponent
                     className={cn(
-                      "h-5 w-5 transition-colors duration-200 flex-shrink-0",
+                      "h-5 w-5 transition-colors duration-200 shrink-0",
                       isActive
                         ? "text-cyan-700 dark:text-primary"
                         : "text-current"
@@ -302,7 +302,7 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-64 bg-gradient-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)] [&>button]:bg-foreground/15 [&>button]:hover:bg-foreground/20 [&>button]:outline-white/50 [&>button]:outline-offset-1 [&>button]:outline-2 [&>button]:text-white [&>button]:rounded-lg"
+                className="w-64 bg-linear-to-br dark:from-primary/20 dark:to-blue-600/20 from-primary/30 to-blue-400/30 backdrop-blur-xl backdrop-saturate-150 border-l border-primary/25 shadow-[0_8px_30px_rgba(0,0,0,0.12)] [&>button]:bg-foreground/15 [&>button]:hover:bg-foreground/20 [&>button]:outline-white/50 [&>button]:outline-offset-1 [&>button]:outline-2 [&>button]:text-white [&>button]:rounded-lg"
               >
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
@@ -318,7 +318,7 @@ export function Navbar() {
                         key={item.name}
                         variant="ghost"
                         className={cn(
-                          "justify-start text-left flex items-center gap-3 px-4 py-3 transition-all duration-200 min-h-[48px] border border-transparent hover:shadow-md font-semibold",
+                          "justify-start text-left flex items-center gap-3 px-4 py-3 transition-all duration-200 min-h-12 border border-transparent hover:shadow-md font-semibold",
                           isActive
                             ? "text-cyan-600 dark:text-primary bg-cyan-200/15 dark:bg-primary/20 border-primary/20 shadow-md"
                             : "text-cyan-600 dark:text-foreground dark:bg-primary/5 hover:text-cyan-600 dark:hover:text-primary hover:bg-cyan-500/10 dark:hover:bg-primary/10 border-primary/5 hover:border-primary/20"
@@ -327,7 +327,7 @@ export function Navbar() {
                       >
                         <IconComponent
                           className={cn(
-                            "h-5 w-5 flex-shrink-0",
+                            "h-5 w-5 shrink-0",
                             isActive
                               ? "text-cyan-700 dark:text-primary"
                               : "text-current"

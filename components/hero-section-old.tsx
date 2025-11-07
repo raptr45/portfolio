@@ -16,16 +16,16 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-[#0f2027] dark:via-[#2c5364] dark:to-[#232526]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-[#0f2027] dark:via-[#2c5364] dark:to-[#232526]"
     >
       {/* Animated floating shapes */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-500/10" />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-blue-500/10" />
 
         {/* Large floating shapes */}
         <motion.div
-          className="absolute top-20 right-20 w-96 h-96 rounded-full bg-gradient-to-br from-primary/20 to-blue-500/20 blur-3xl"
+          className="absolute top-20 right-20 w-96 h-96 rounded-full bg-linear-to-br from-primary/20 to-blue-500/20 blur-3xl"
           animate={{
             y: [0, -30, 0],
             scale: [1, 1.1, 1],
@@ -39,7 +39,7 @@ export function HeroSection() {
         />
 
         <motion.div
-          className="absolute bottom-32 left-16 w-80 h-80 rounded-full bg-gradient-to-br from-pink-500/20 to-purple-600/20 blur-3xl"
+          className="absolute bottom-32 left-16 w-80 h-80 rounded-full bg-linear-to-br from-pink-500/20 to-purple-600/20 blur-3xl"
           animate={{
             y: [0, 40, 0],
             scale: [1, 0.9, 1],
@@ -54,7 +54,7 @@ export function HeroSection() {
         />
 
         <motion.div
-          className="absolute top-1/2 left-1/4 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-400/15 to-blue-600/15 blur-2xl"
+          className="absolute top-1/2 left-1/4 w-64 h-64 rounded-full bg-linear-to-br from-cyan-400/15 to-blue-600/15 blur-2xl"
           animate={{
             x: [0, 50, 0],
             y: [0, -25, 0],
@@ -70,7 +70,7 @@ export function HeroSection() {
 
         {/* Medium floating shapes */}
         <motion.div
-          className="absolute top-1/4 right-1/3 w-32 h-32 rounded-full bg-gradient-to-br from-yellow-400/20 to-orange-500/20 blur-xl"
+          className="absolute top-1/4 right-1/3 w-32 h-32 rounded-full bg-linear-to-br from-yellow-400/20 to-orange-500/20 blur-xl"
           animate={{
             y: [0, -20, 0],
             x: [0, 20, 0],
@@ -84,7 +84,7 @@ export function HeroSection() {
         />
 
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-gradient-to-br from-green-400/25 to-emerald-600/25 blur-lg"
+          className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-linear-to-br from-green-400/25 to-emerald-600/25 blur-lg"
           animate={{
             y: [0, 30, 0],
             scale: [1, 1.3, 1],
@@ -111,7 +111,7 @@ export function HeroSection() {
         ].map((particle, i) => (
           <motion.div
             key={i}
-            className="absolute w-4 h-4 rounded-full bg-gradient-to-r from-primary/40 to-blue-500/40"
+            className="absolute w-4 h-4 rounded-full bg-linear-to-r from-primary/40 to-blue-500/40"
             style={{
               top: `${particle.top}%`,
               left: `${particle.left}%`,
@@ -211,7 +211,7 @@ export function HeroSection() {
           >
             <span className="relative inline-block">
               <span
-                className="bg-gradient-to-r from-indigo-500 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
+                className="bg-linear-to-r from-indigo-500 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
                 style={{
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -220,7 +220,7 @@ export function HeroSection() {
                 Abid Al Wassie
               </span>
               <motion.div
-                className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-3xl blur-2xl -z-10"
+                className="absolute -inset-1 bg-linear-to-r from-primary/20 to-blue-500/20 rounded-3xl blur-2xl -z-10"
                 animate={{
                   opacity: [0.2, 0.4, 0.2],
                   scale: [0.95, 1.02, 0.95],
@@ -242,7 +242,7 @@ export function HeroSection() {
             className="my-8 flex justify-center"
           >
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-600 to-purple-600 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition duration-300"></div>
+              <div className="absolute -inset-1 bg-linear-to-r from-primary via-blue-600 to-purple-600 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition duration-300"></div>
               <Badge
                 variant="secondary"
                 className="relative px-6 py-4 text-lg tracking-widest shadow-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-gray-800 dark:text-white border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 font-bold"
@@ -256,7 +256,7 @@ export function HeroSection() {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent bg-300% font-extrabold"
+                  className="bg-linear-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent bg-300% font-extrabold"
                   style={{
                     backgroundSize: "300% 100%",
                   }}
@@ -275,7 +275,7 @@ export function HeroSection() {
             className="mb-8 flex justify-center"
           >
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 rounded-2xl blur-lg opacity-60 group-hover:opacity-90 transition duration-300"></div>
+              <div className="absolute -inset-1 bg-linear-to-r from-emerald-500 via-green-600 to-teal-600 rounded-2xl blur-lg opacity-60 group-hover:opacity-90 transition duration-300"></div>
               <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm px-8 py-4 rounded-2xl border-2 border-emerald-500/40 shadow-2xl">
                 <span className="text-lg font-bold text-emerald-700 dark:text-emerald-300 tracking-wide flex items-center gap-2">
                   🏆 3+ Years Experience
@@ -303,7 +303,7 @@ export function HeroSection() {
                 technologies.
               </div>
               <br />
-              <span className="text-3xl font-semibold bg-gradient-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+              <span className="text-3xl font-semibold bg-linear-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
                 💫 Let&apos;s build something amazing together!
               </span>
             </div>
@@ -319,7 +319,7 @@ export function HeroSection() {
             <Button
               size="lg"
               onClick={() => scrollToSection("work")}
-              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold text-white border-0"
+              className="text-2xl px-12 py-6 rounded-2xl shadow-2xl bg-linear-to-r from-blue-200 via-blue-400 to-blue-600 hover:scale-105 hover:shadow-primary/25 transition-all duration-300 font-bold text-white border-0"
             >
               🚀 View My Work
             </Button>
@@ -368,7 +368,7 @@ export function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="relative group"
             >
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-blue-700 rounded-2xl blur-lg opacity-0 group-hover:opacity-70 transition duration-300"></div>
+              <div className="absolute -inset-2 bg-linear-to-r from-blue-500 to-blue-700 rounded-2xl blur-lg opacity-0 group-hover:opacity-70 transition duration-300"></div>
               <Button
                 variant="ghost"
                 size="icon"
@@ -391,7 +391,7 @@ export function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="relative group"
             >
-              <div className="absolute -inset-2 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-70 transition duration-300"></div>
+              <div className="absolute -inset-2 bg-linear-to-r from-red-500 to-pink-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-70 transition duration-300"></div>
               <Button
                 variant="ghost"
                 size="icon"
@@ -423,7 +423,7 @@ export function HeroSection() {
               }}
               className="relative group"
             >
-              <div className="absolute -inset-3 bg-gradient-to-b from-primary/30 to-blue-600/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <div className="absolute -inset-3 bg-linear-to-b from-primary/30 to-blue-600/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition duration-300"></div>
               <Button
                 variant="ghost"
                 size="icon"

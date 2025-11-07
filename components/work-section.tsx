@@ -42,11 +42,11 @@ export function WorkSection() {
   return (
     <section
       id="work"
-      className="py-32 relative overflow-hidden bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      className="py-32 relative overflow-hidden bg-linear-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-gradient-to-br from-red-500/10 to-pink-500/10 blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 blur-3xl" />
+        <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-linear-to-br from-red-500/10 to-pink-500/10 blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-linear-to-br from-purple-500/10 to-blue-500/10 blur-3xl" />
       </div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">

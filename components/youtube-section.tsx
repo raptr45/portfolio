@@ -74,7 +74,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
   return (
     <section
       id="youtube"
-      className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      className="py-24 relative overflow-hidden bg-linear-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       <YouTubeBackgroundDecor />
 

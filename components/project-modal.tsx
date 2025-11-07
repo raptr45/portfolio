@@ -50,7 +50,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl h-[90vh] flex flex-col overflow-hidden [&>button]:bg-red-500 [&>button]:text-white [&>button]:rounded-md [&>button]:flex [&>button]:justify-center [&>button]:items-center [&>button:hover]:bg-red-600 [&>button]:w-8 [&>button]:h-8 [&>button]:text-3xl">
-        <DialogHeader className="flex-shrink-0 pb-4 text-left">
+        <DialogHeader className="shrink-0 pb-4 text-left">
           <DialogTitle className="text-2xl font-bold text-left leading-tight">
             {project.title}
           </DialogTitle>
@@ -115,7 +115,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 <span className="font-medium">{project.category}</span>
               </div> */}
               <div
-                className={`flex justify-center items-center gap-1 px-1 py-1 rounded-full ${statusInfo.bg} flex-shrink-0 w-auto max-w-32`}
+                className={`flex justify-center items-center gap-1 px-1 py-1 rounded-full ${statusInfo.bg} shrink-0 w-auto max-w-32`}
               >
                 <StatusIcon className={`h-4 w-4 ${statusInfo.color}`} />
                 <span
@@ -168,7 +168,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   <ul className="space-y-2">
                     {project.highlights.map((highlight, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 shrink-0" />
                         <span className="text-muted-foreground">
                           {highlight}
                         </span>
@@ -182,7 +182,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
         </div>
 
         {/* Action Buttons - Fixed at bottom */}
-        <div className="flex-shrink-0 pt-6 border-t">
+        <div className="shrink-0 pt-6 border-t">
           <div className="flex flex-col sm:flex-row gap-3">
             {project.liveUrl && (
               <Button asChild className="flex-1" size="lg">

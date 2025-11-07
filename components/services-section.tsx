@@ -41,7 +41,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="py-32 bg-gradient-to-br from-muted/10 via-background to-primary/5"
+      className="py-32 bg-linear-to-br from-muted/10 via-background to-primary/5"
     >
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-start">
@@ -123,7 +123,7 @@ export function ServicesSection() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-200 border-2 border-primary/20 hover:border-primary text-lg font-semibold !text-foreground hover:!text-primary-foreground dark:!text-foreground"
+                    className="group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-200 border-2 border-primary/20 hover:border-primary text-lg font-semibold text-foreground! hover:text-primary-foreground! dark:text-foreground!"
                   >
                     Read more
                   </Button>

@@ -43,7 +43,7 @@ export function TechStack() {
   return (
     <section
       id="skills"
-      className="py-32 bg-gradient-to-br from-background via-muted/20 to-background"
+      className="py-32 bg-linear-to-br from-background via-muted/20 to-background"
     >
       <div className="container mx-auto px-6">
         {/* Header */}
@@ -88,7 +88,7 @@ export function TechStack() {
                 <Card className="h-full group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border-2 border-primary/10 hover:border-primary/30 bg-card/80 backdrop-blur-sm">
                   <CardHeader className="pb-6">
                     <CardTitle className="flex items-center gap-4 text-2xl md:text-3xl">
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 text-primary group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all duration-300 shadow-lg">
+                      <div className="p-3 rounded-xl bg-linear-to-br from-primary/20 to-primary/10 text-primary group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all duration-300 shadow-lg">
                         <IconComponent className="h-7 w-7" />
                       </div>
                       <span className="text-balance font-bold text-foreground">

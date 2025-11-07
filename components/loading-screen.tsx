@@ -34,7 +34,7 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
+          className="fixed inset-0 z-9999 flex items-center justify-center bg-background"
         >
           <div className="text-center space-y-4">
             {/* Simplified Logo */}
@@ -45,7 +45,7 @@ export function LoadingScreen() {
               className="flex items-center justify-center gap-2"
             >
               <div className="relative w-26 h-16 flex items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
+                <div className="w-12 h-12 rounded-full bg-linear-to-br from-primary to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
                   <span className="text-white font-bold text-4xl">A</span>
                 </div>
                 <span className="absolute left-[19px] right-0 mx-auto text-center font-bold text-4xl text-gradient-brand pointer-events-none">

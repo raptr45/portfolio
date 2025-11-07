@@ -21,7 +21,7 @@ export function HeroScrollIndicator({ onScroll }: HeroScrollIndicatorProps) {
         className={cn(
           "cursor-pointer group relative h-12 w-12 sm:h-14 sm:w-14 rounded-full",
           // Base shell
-          "border border-white/15 dark:border-white/15 bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-950/70 dark:to-gray-800/60 backdrop-blur-md",
+          "border border-white/15 dark:border-white/15 bg-linear-to-br from-white/80 to-white/60 dark:from-gray-950/70 dark:to-gray-800/60 backdrop-blur-md",
           "flex items-center justify-center overflow-hidden",
           "transition-colors duration-300 hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
         )}
@@ -29,12 +29,12 @@ export function HeroScrollIndicator({ onScroll }: HeroScrollIndicatorProps) {
         {/* Hover gradient overlay (Tailwind colors, easy to tweak) */}
         <span
           aria-hidden
-          className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/30 via-primary/20 to-blue-600/30"
+          className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-br from-primary/30 via-primary/20 to-blue-600/30"
         />
         {/* Soft glow using blur (separate layer for stronger color editing) */}
         <span
           aria-hidden
-          className="absolute inset-0 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-gradient-to-br from-primary/40 to-blue-600/40"
+          className="absolute inset-0 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-linear-to-br from-primary/40 to-blue-600/40"
         />
         {/* Inner subtle ring that brightens on hover */}
         <span

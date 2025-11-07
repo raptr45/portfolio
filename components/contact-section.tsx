@@ -97,14 +97,14 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background"
+      className="relative py-20 sm:py-28 lg:py-32 overflow-hidden bg-linear-to-br from-background via-muted/10 to-background"
       aria-labelledby="contact-heading"
     >
       {/* Static subtle glowing circles (replaces previous moving-looking blobs) */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gradient-to-br from-primary/30 via-primary/10 to-transparent blur-3xl opacity-50" />
-        <div className="absolute -bottom-32 -left-16 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-blue-600/30 via-blue-600/10 to-transparent blur-3xl opacity-45" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-gradient-to-b from-indigo-500/20 via-indigo-500/5 to-transparent blur-2xl opacity-40" />
+        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-linear-to-br from-primary/30 via-primary/10 to-transparent blur-3xl opacity-50" />
+        <div className="absolute -bottom-32 -left-16 h-112 w-md rounded-full bg-linear-to-tr from-blue-600/30 via-blue-600/10 to-transparent blur-3xl opacity-45" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-linear-to-b from-indigo-500/20 via-indigo-500/5 to-transparent blur-2xl opacity-40" />
       </div>
       <div className="container relative z-10 mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-start">
@@ -139,13 +139,13 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-center gap-3 sm:gap-4 group p-3 sm:p-4 rounded-2xl border border-primary/15 bg-gradient-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 transition-colors cursor-pointer focus-brand outline-none"
+              className="flex items-center gap-3 sm:gap-4 group p-3 sm:p-4 rounded-2xl border border-primary/15 bg-linear-to-r from-primary/5 to-blue-600/5 hover:from-primary/10 hover:to-blue-600/10 transition-colors cursor-pointer focus-brand outline-none"
             >
-              <Mail className="h-6 w-6 sm:h-7 sm:w-7 text-primary flex-shrink-0 drop-shadow" />
+              <Mail className="h-6 w-6 sm:h-7 sm:w-7 text-primary shrink-0 drop-shadow" />
               <span className="text-lg sm:text-xl lg:text-2xl font-semibold group-hover:text-primary transition-colors break-all select-text">
                 abidalwassie@gmail.com
               </span>
-              <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-muted-foreground group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-muted-foreground group-hover:translate-x-1 transition-transform shrink-0" />
             </motion.a>
 
             <motion.div
@@ -177,10 +177,10 @@ export function ContactSection() {
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <Card className="relative overflow-hidden w-full border border-primary/20 bg-background/80 dark:bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-lg">
+            <Card className="relative overflow-hidden w-full border border-primary/20 bg-background/80 dark:bg-background/70 backdrop-blur supports-backdrop-filter:bg-background/60 shadow-lg">
               {/* Subtle corner gradient accents */}
-              <div className="pointer-events-none absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/20 to-transparent rounded-full translate-x-10 -translate-y-10 blur-xl" />
-              <div className="pointer-events-none absolute bottom-0 left-0 w-44 h-44 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full -translate-x-10 translate-y-10 blur-xl" />
+              <div className="pointer-events-none absolute top-0 right-0 w-40 h-40 bg-linear-to-bl from-primary/20 to-transparent rounded-full translate-x-10 -translate-y-10 blur-xl" />
+              <div className="pointer-events-none absolute bottom-0 left-0 w-44 h-44 bg-linear-to-tr from-blue-500/20 to-transparent rounded-full -translate-x-10 translate-y-10 blur-xl" />
               <CardContent className="p-5 sm:p-7 lg:p-9 relative z-10">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
