@@ -353,7 +353,7 @@ export function HeroSection() {
                 className="relative w-16 h-16 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-400/30 dark:border-white/20 hover:bg-white hover:border-gray-600 dark:hover:bg-gray-800 dark:hover:border-white/40 hover:shadow-2xl transition-all duration-300 text-gray-700 dark:text-white group"
               >
                 <a
-                  href="https://github.com/AbidAlWassie"
+                  href="https://github.com/raptr45"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"

@@ -20,7 +20,7 @@ export function Footer() {
           <p className="text-center text-muted-foreground md:flex-1 order-last md:order-0 leading-relaxed">
             &copy; {year} Copyright:{" "}
             <a
-              href="https://github.com/AbidAlWassie"
+              href="https://github.com/raptr45"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors"

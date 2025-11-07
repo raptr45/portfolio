@@ -25,7 +25,7 @@ interface SocialItemConfig {
 const BASE_ITEMS: Record<SocialKey, SocialItemConfig> = {
   github: {
     key: "github",
-    href: "https://github.com/AbidAlWassie",
+    href: "https://github.com/raptr45",
     label: "GitHub",
     tooltip: "Follow me on GitHub",
     icon: Github,
@@ -115,10 +115,10 @@ export function SocialLinks({
     size === "sm"
       ? "w-9 h-9"
       : size === "md"
-      ? "w-11 h-11"
-      : size === "lg"
-      ? "w-12 h-12"
-      : sizeMap[variant];
+        ? "w-11 h-11"
+        : size === "lg"
+          ? "w-12 h-12"
+          : sizeMap[variant];
 
   const radiusMap = {
     hero: "rounded-xl",
@@ -136,8 +136,8 @@ export function SocialLinks({
     justify === "start"
       ? "justify-start"
       : justify === "end"
-      ? "justify-end"
-      : "justify-center";
+        ? "justify-end"
+        : "justify-center";
 
   const containerClasses = cn(
     "flex items-center",

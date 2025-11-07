@@ -76,7 +76,7 @@ portfolio/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/AbidAlWassie/portfolio.git
+   git clone https://github.com/raptr45/portfolio.git
    cd portfolio
    ```
 
@@ -202,7 +202,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - Email: abidalwassie@outlook.com
 - LinkedIn: [linkedin.com/in/abidalwassie](https://linkedin.com/in/abidalwassie)
-- GitHub: [github.com/AbidAlWassie](https://github.com/AbidAlWassie)
+- GitHub: [github.com/raptr45](https://github.com/raptr45)
 
 ---
 

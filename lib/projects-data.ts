@@ -86,7 +86,7 @@ export const projects: Project[] = [
       "Fast builds with Turbopack",
     ],
     liveUrl: "https://frostcore.tech",
-    codeUrl: "https://github.com/abidalwassie/next-blog",
+    codeUrl: "https://github.com/raptr45/next-blog",
     featured: true,
   },
   {
@@ -118,7 +118,7 @@ export const projects: Project[] = [
       "Video calling integration",
     ],
     liveUrl: "https://blazechat-beta.vercel.app",
-    codeUrl: "https://github.com/abidalwassie/realtime_chat",
+    codeUrl: "https://github.com/raptr45/realtime_chat",
     featured: true,
   },
   {
