@@ -1,6 +1,8 @@
 import { ContentWrapper } from "@/components/content-wrapper";
 import { LoadingProvider } from "@/components/loading-context";
 import { LoadingScreen } from "@/components/loading-screen";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
@@ -159,6 +161,8 @@ export default function RootLayout({
             </ContentWrapper>
           </LoadingProvider>
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
