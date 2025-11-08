@@ -1,5 +1,6 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
+import { ViewAllButton } from "@/components/view-all-button";
 import { ProjectCard } from "@/components/work/project-card";
 import { projects, type Project } from "@/lib/projects-data";
 import { motion } from "framer-motion";
@@ -42,7 +43,7 @@ export function WorkSection() {
   return (
     <section
       id="work"
-      className="py-32 relative overflow-hidden bg-linear-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      className="py-16 relative overflow-hidden bg-linear-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-linear-to-br from-red-500/10 to-pink-500/10 blur-3xl" />
@@ -99,19 +100,14 @@ export function WorkSection() {
               ))}
             </div>
             <div className="mt-14 flex justify-center">
-              <motion.a
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                href="#work-all"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-brand-multi text-white shadow-lg hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/40"
               >
-                View All
-                <span className="text-xl" aria-hidden>
-                  →
-                </span>
-              </motion.a>
+                <ViewAllButton href="/work">View All</ViewAllButton>
+              </motion.div>
             </div>
           </div>
         )}

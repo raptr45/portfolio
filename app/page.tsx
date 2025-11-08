@@ -118,7 +118,7 @@ async function getYouTubeData(): Promise<YouTubeData> {
     // Fetch all public playlists from the channel
     const playlistsRes = await fetch(
       `${YOUTUBE_API_BASE}/playlists?part=snippet,contentDetails&channelId=${CHANNEL_ID}&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`,
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 86400 } }
     );
 
     if (!playlistsRes.ok) {

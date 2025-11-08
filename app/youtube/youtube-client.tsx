@@ -1,21 +1,18 @@
 "use client";
 
-import { ViewAllButton } from "@/components/view-all-button";
 import { YouTubeBackgroundDecor } from "@/components/youtube/background-decor";
 import { EmptyVideoState } from "@/components/youtube/empty-state";
 import { FilterBar } from "@/components/youtube/filter-bar";
-import { YouTubeSectionHeader } from "@/components/youtube/section-header";
 import { VideoGrid } from "@/components/youtube/video-grid";
 import type { YouTubeData } from "@/types/youtube";
-import { motion } from "framer-motion";
 import { useCallback, useMemo, useState } from "react";
 import { toast } from "sonner";
 
-interface YouTubeSectionProps {
+interface YouTubePageClientProps {
   data: YouTubeData;
 }
 
-export function YouTubeSection({ data }: YouTubeSectionProps) {
+export function YouTubePageClient({ data }: YouTubePageClientProps) {
   const [filter, setFilter] = useState("all");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -60,29 +57,19 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
 
   if (!data?.playlists?.length && !data?.items?.length) {
     return (
-      <section id="youtube" className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">YouTube</h2>
-            <p className="text-muted-foreground">
-              No videos available at the moment.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div className="text-center py-20">
+        <p className="text-muted-foreground text-lg">
+          No videos available at the moment.
+        </p>
+      </div>
     );
   }
 
   return (
-    <section
-      id="youtube"
-      className="py-24 relative overflow-hidden bg-linear-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
-    >
+    <>
       <YouTubeBackgroundDecor />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <YouTubeSectionHeader />
-
+      <div className="relative z-10">
         <FilterBar
           options={filterOptions}
           active={filter}
@@ -97,18 +84,7 @@ export function YouTubeSection({ data }: YouTubeSectionProps) {
         />
 
         {filteredVideos.length === 0 && <EmptyVideoState />}
-
-        <div className="mt-14 flex justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <ViewAllButton href="/youtube">View All</ViewAllButton>
-          </motion.div>
-        </div>
       </div>
-    </section>
+    </>
   );
 }

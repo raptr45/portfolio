@@ -33,12 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var s=localStorage.getItem('theme');var d=document.documentElement.classList;if(s){if(s==='dark'){d.add('dark')}else{d.remove('dark')}}else{d.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})();",
-          }}
-        /> */}
         {/* Preload critical resources */}
         <link rel="dns-prefetch" href="https://www.googleapis.com" />
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
