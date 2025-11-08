@@ -1,84 +1,139 @@
-"use client";
-
-// Simple placeholder SVG card – removes complex shapes & animations
 export function AvailableForWorkCard() {
   return (
-    <div className="relative w-full max-w-md aspect-square overflow-hidden rounded-3xl bg-neutral-100 dark:bg-neutral-900">
+    <div className="relative">
       <svg
-        viewBox="0 0 400 400"
-        className="w-full h-full block"
-        role="img"
-        aria-label="Placeholder graphic"
+        viewBox="0 0 900 900"
+        className="w-full h-auto"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
       >
-        <defs>
-          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#2a1842" />
-            <stop offset="100%" stopColor="#211437" />
-          </linearGradient>
-          <pattern
-            id="grid"
-            width="24"
-            height="24"
-            patternUnits="userSpaceOnUse"
+        {/* Background glow */}
+        <rect width="900" height="900" fill="url(#bgGlow)" />
+
+        <g clipPath="url(#clip0)">
+          {/* Soft shape glows underneath */}
+          <g
+            filter="url(#softGlow)"
+            opacity="0.55"
+            style={{ mixBlendMode: "lighten" }}
           >
-            <path
-              d="M24 0H0v24"
-              fill="none"
-              stroke="#ffffff10"
-              strokeWidth="1"
+            <circle
+              cx="616.768"
+              cy="543.294"
+              r="135.984"
+              transform="rotate(75 616.768 543.294)"
+              fill="url(#gradientGreen)"
             />
-          </pattern>
-        </defs>
+            <circle
+              cx="541.933"
+              cy="245.457"
+              r="139.446"
+              transform="rotate(75 541.933 245.457)"
+              fill="url(#gradientBlue)"
+            />
+            <rect
+              x="332.673"
+              y="198.409"
+              width="265.586"
+              height="265.586"
+              rx="25"
+              transform="rotate(60 332.673 198.409)"
+              fill="url(#gradientGreen)"
+            />
+            <rect
+              x="409.996"
+              y="494.252"
+              width="264.466"
+              height="265.586"
+              rx="25"
+              transform="rotate(60 409.996 494.252)"
+              fill="url(#gradientBlue)"
+            />
+          </g>
 
-        {/* background gradient + subtle grid */}
-        <rect x="0" y="0" width="400" height="400" fill="url(#bg)" rx="28" />
-        <rect x="0" y="0" width="400" height="400" fill="url(#grid)" rx="28" />
-
-        {/* placeholder icon (circle + bars) */}
-        <g transform="translate(120,120)" opacity="0.8">
-          <circle cx="80" cy="80" r="56" fill="#7c3aed" fillOpacity="0.2" />
-          <rect
-            x="32"
-            y="76"
-            width="96"
-            height="12"
-            rx="6"
-            fill="#ffffff"
-            fillOpacity="0.18"
+          {/* Main shapes */}
+          <circle
+            cx="616.768"
+            cy="543.294"
+            r="135.984"
+            transform="rotate(75 616.768 543.294)"
+            fill="url(#gradientGreen)"
+          />
+          <circle
+            cx="541.933"
+            cy="245.457"
+            r="139.446"
+            transform="rotate(75 541.933 245.457)"
+            fill="url(#gradientBlue)"
           />
           <rect
-            x="48"
-            y="98"
-            width="64"
-            height="12"
-            rx="6"
-            fill="#ffffff"
-            fillOpacity="0.12"
+            x="332.673"
+            y="198.409"
+            width="265.586"
+            height="265.586"
+            rx="25"
+            transform="rotate(60 332.673 198.409)"
+            fill="url(#gradientGreen)"
+          />
+          <rect
+            x="409.996"
+            y="494.252"
+            width="264.466"
+            height="265.586"
+            rx="25"
+            transform="rotate(60 409.996 494.252)"
+            fill="url(#gradientBlue)"
           />
         </g>
 
-        {/* label */}
-        <g transform="translate(120,180)">
-          <rect
-            x="-12"
-            y="-20"
-            width="184"
-            height="40"
-            rx="20"
-            fill="#0b0b0c"
-            fillOpacity="0.9"
-          />
-          <circle cx="8" cy="0" r="4" fill="#10b981" />
-          <text
-            x="20"
-            y="6"
-            fontFamily="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial"
-            fontSize="14"
-            fill="#ffffff"
+        <defs>
+          {/* Background radial gradient glow */}
+          <radialGradient id="bgGlow" cx="50%" cy="55%" r="60%">
+            <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
+          </radialGradient>
+
+          {/* Soft blur for glows */}
+          <filter
+            id="softGlow"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+            colorInterpolationFilters="sRGB"
           >
-            Available for Work
-          </text>
-        </g>
+            <feGaussianBlur stdDeviation="60" />
+          </filter>
+
+          {/* Shape gradients */}
+          <linearGradient
+            id="gradientGreen"
+            x1="481.518"
+            y1="407.31"
+            x2="752.017"
+            y2="679.279"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#4BF3BE" />
+            <stop offset="1" stopColor="#12AF7B" />
+          </linearGradient>
+          <linearGradient
+            id="gradientBlue"
+            x1="403.24"
+            y1="106.011"
+            x2="680.626"
+            y2="384.903"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#7EB9FF" />
+            <stop offset="1" stopColor="#3D8BFF" />
+          </linearGradient>
+
+          <clipPath id="clip0">
+            <rect width="900" height="900" fill="white" />
+          </clipPath>
+        </defs>
       </svg>
     </div>
   );

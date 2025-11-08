@@ -578,50 +578,50 @@
 /* Reusable Gradient Utilities (centralized) */
 @layer utilities {
   /* Text Gradients */
-  .text-gradient-brand { @apply bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent; }
-  .text-gradient-soft { @apply bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent; }
-  .text-gradient-spectrum { @apply bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent; }
+  .text-gradient-brand { @apply bg-linear-to-r from-primary to-sky-800 dark:from-primary dark:to-sky-200 bg-clip-text text-transparent; }
+  .text-gradient-soft { @apply bg-linear-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent; }
+  .text-gradient-spectrum { @apply bg-linear-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent; }
 
   /* Section Backgrounds */
-  .bg-section-neutral { @apply bg-gradient-to-br from-background via-muted/20 to-background; }
-  .bg-section-alt { @apply bg-gradient-to-br from-muted/10 via-background to-primary/5; }
-  .bg-section-gray { @apply bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900; }
+  .bg-section-neutral { @apply bg-linear-to-br from-background via-muted/20 to-background; }
+  .bg-section-alt { @apply bg-linear-to-br from-muted/10 via-background to-primary/5; }
+  .bg-section-gray { @apply bg-linear-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900; }
 
   /* Brand Surfaces */
-  .bg-brand-solid { @apply bg-gradient-to-r from-primary to-blue-600; }
-  .bg-brand-multi { @apply bg-gradient-to-tl from-sky-500 via-blue-500 to-indigo-500; }
-  .bg-brand-faint { @apply bg-gradient-to-r from-primary/5 to-blue-600/5; }
+  .bg-brand-solid { @apply bg-linear-to-r from-primary to-blue-600; }
+  .bg-brand-multi { @apply bg-linear-to-tl from-sky-500 via-blue-500 to-indigo-500; }
+  .bg-brand-faint { @apply bg-linear-to-r from-primary/5 to-blue-600/5; }
   .hover\:bg-brand-faint:hover { @apply from-primary/10 to-blue-600/10; }
   
 
   /* Overlays */
-  .overlay-dark-soft { @apply bg-gradient-to-t from-black/80 via-black/20 to-transparent; }
-  .overlay-dark-strong { @apply bg-gradient-to-t from-black/80 via-black/40 to-transparent; }
+  .overlay-dark-soft { @apply bg-linear-to-t from-black/80 via-black/20 to-transparent; }
+  .overlay-dark-strong { @apply bg-linear-to-t from-black/80 via-black/40 to-transparent; }
   
 
   /* Timeline / dividers */
-  .bg-timeline-line { @apply bg-gradient-to-b from-primary/30 via-primary/10 to-transparent; }
+  .bg-timeline-line { @apply bg-linear-to-b from-primary/30 via-primary/10 to-transparent; }
 
   /* Blob helper base (color stops provided inline) */
   .blob-circle { @apply rounded-full blur-3xl opacity-50; }
 
   /* YouTube / media specific text gradients (extracted from inline usage to avoid drift) */
-  .text-gradient-yt-title { @apply bg-gradient-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent; }
-  .text-gradient-yt-emphasis { @apply bg-gradient-to-r from-red-500 to-pink-600 dark:from-red-300 dark:to-pink-300 bg-clip-text text-transparent; }
-  .text-gradient-yt-tech { @apply bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-300 dark:to-blue-300 bg-clip-text text-transparent; }
+  .text-gradient-yt-title { @apply bg-linear-to-r from-white via-red-400 to-pink-400 bg-clip-text text-transparent; }
+  .text-gradient-yt-emphasis { @apply bg-linear-to-r from-red-500 to-pink-600 dark:from-red-300 dark:to-pink-300 bg-clip-text text-transparent; }
+  .text-gradient-yt-tech { @apply bg-linear-to-r from-cyan-500 to-blue-600 dark:from-cyan-300 dark:to-blue-300 bg-clip-text text-transparent; }
 
   /* Contact form heading subtle gradient (exact match of previous inline) */
-  .text-gradient-form-heading { @apply bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent; }
+  .text-gradient-form-heading { @apply bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-transparent; }
 
   /* YouTube badge background */
-  .bg-yt-badge { @apply bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30; }
+  .bg-yt-badge { @apply bg-linear-to-r from-red-500/20 to-pink-500/20 border-red-500/30; }
 
   /* Social icon gradient backgrounds */
-  .bg-social-github { @apply bg-gradient-to-br from-gray-600 via-gray-800 to-black text-white; }
-  .bg-social-linkedin { @apply bg-gradient-to-br from-[#2281e0] via-[#0a5cb0] to-[#094b8f] text-white; }
-  .bg-social-youtube { @apply bg-gradient-to-br from-red-400 via-red-500 to-rose-500 text-white; }
-  .bg-social-email { @apply bg-gradient-to-br from-sky-200 via-blue-400 to-indigo-600 text-white; }
-  .bg-social-twitter { @apply bg-gradient-to-br from-sky-500 via-sky-500 to-blue-600 text-white; }
+  .bg-social-github { @apply bg-linear-to-br from-gray-600 via-gray-800 to-black text-white; }
+  .bg-social-linkedin { @apply bg-linear-to-br from-[#2281e0] via-[#0a5cb0] to-[#094b8f] text-white; }
+  .bg-social-youtube { @apply bg-linear-to-br from-red-400 via-red-500 to-rose-500 text-white; }
+  .bg-social-email { @apply bg-linear-to-br from-sky-200 via-blue-400 to-indigo-600 text-white; }
+  .bg-social-twitter { @apply bg-linear-to-br from-sky-500 via-sky-500 to-blue-600 text-white; }
 
   /* Hover accent (applied alongside gradient) */
   .social-hover { @apply hover:brightness-110 active:brightness-95 transition-colors; }
